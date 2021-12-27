@@ -1,3 +1,4 @@
-const Profile = require('./Profile');
+const Profile = require("./Profile");
+const Search = require("./Search");
 
-module.exports = { Profile };
+module.exports = { Profile, Search };
