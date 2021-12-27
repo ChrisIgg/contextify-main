@@ -48,13 +48,26 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addSkill: async (parent, { profileId, skill }, context) => {
+    // This will allow us to save a recent searches
+    addSearch: async (
+      parent,
+      { searchId, name, weight, mass, diameter, distance, duration },
+      context
+    ) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: profileId },
+        return Search.findOneAndUpdate(
+          { _id: searchId },
           {
-            $addToSet: { skills: skill },
+            $addToSet: {
+              searchId,
+              name,
+              weight,
+              mass,
+              diameter,
+              distance,
+              duration,
+            },
           },
           {
             new: true,
