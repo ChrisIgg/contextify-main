@@ -16,8 +16,10 @@ const Weight = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
   const [weight, setWeight] = useState("lbs");
   const [output, setOutput] = useState("lbs");
-  const [search, setSearch] = useState(0);
-
+  const [search, setSearch] = useState();
+  if (search < 0) {
+    setSearch(0);
+  }
   const handleInputChange = (e) => setSearch(e.target.value);
 
   function setPounds() {
@@ -29,6 +31,9 @@ const Weight = () => {
   function setGrams() {
     setOutput("g");
   }
+  function setBanana() {
+    setOutput("Bananas");
+  }
   function pounds() {
     setWeight("lbs");
   }
@@ -39,14 +44,26 @@ const Weight = () => {
     setWeight("g");
   }
   function findWeight() {
-    // get weight from input
-    let userWeight = search;
-    // get weight type from input
-    let weightType = weight;
-    // get output type from search field
-    let outputType = output;
+    if (weight === "lbs" && output === "oz") {
+      console.log(`lbs to oz`);
+      let newWeight = Number(search) * 16;
+      console.log(newWeight);
+    }
+    if (weight === "lbs" && output === "g") {
+      console.log(`lbs to g`);
+      let newWeight = Number(search) * 453.592;
+      console.log(newWeight);
+    }
+    if (weight === "lbs" && output === "lbs") {
+      console.log(`lbs to lbs`);
+      let newWeight = Number(search);
+      console.log(newWeight);
+    }
+    if (weight === "lbs" && output === "Bananas") {
+      console.log(`lbs to bananas`);
+    }
     console.log(
-      `userWeight: ${userWeight} \n weightType: ${weightType} \n outputType: ${outputType}`
+      `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
     );
   }
   return (
@@ -79,7 +96,7 @@ const Weight = () => {
           <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item>Bananas</Dropdown.Item>
+          <Dropdown.Item onClick={setBanana}>Bananas</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
       </>
