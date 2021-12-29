@@ -14,16 +14,40 @@ import { QUERY_PROFILES } from "../utils/queries";
 
 const Weight = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
-  const [inputType, setInputType] = useState("Lbs");
+  const [weight, setWeight] = useState("lbs");
+  const [output, setOutput] = useState("lbs");
+  const [search, setSearch] = useState(0);
 
+  const handleInputChange = (e) => setSearch(e.target.value);
+
+  function setPounds() {
+    setOutput("lbs");
+  }
+  function setOunces() {
+    setOutput("oz");
+  }
+  function setGrams() {
+    setOutput("g");
+  }
   function pounds() {
-    setInputType("lbs");
+    setWeight("lbs");
   }
   function oz() {
-    setInputType("oz");
+    setWeight("oz");
   }
   function grams() {
-    setInputType("g");
+    setWeight("g");
+  }
+  function findWeight() {
+    // get weight from input
+    let userWeight = search;
+    // get weight type from input
+    let weightType = weight;
+    // get output type from search field
+    let outputType = output;
+    console.log(
+      `userWeight: ${userWeight} \n weightType: ${weightType} \n outputType: ${outputType}`
+    );
   }
   return (
     <main>
@@ -32,10 +56,12 @@ const Weight = () => {
           <FormControl
             type="number"
             aria-label="Text input with dropdown button"
+            value={search}
+            onChange={handleInputChange}
           />
           <SplitButton
             variant="outline-secondary"
-            title={inputType}
+            title={weight}
             id="segmented-button-dropdown-2"
             alignRight
           >
@@ -43,8 +69,19 @@ const Weight = () => {
             <Dropdown.Item onClick={oz}>oz</Dropdown.Item>
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
-          <Button variant="outline-info">Search</Button>{" "}
         </InputGroup>
+        <h2>Output weight in...</h2>
+        <SplitButton
+          variant="outline-secondary"
+          title={output}
+          id="segmented-button-dropdown-2"
+        >
+          <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
+          <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
+          <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
+          <Dropdown.Item>Bananas</Dropdown.Item>
+        </SplitButton>
+        <Button onClick={findWeight}>Contextify</Button>
       </>
     </main>
   );
