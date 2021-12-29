@@ -1,30 +1,17 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-
-import ProfileList from '../components/ProfileList';
-
-import { QUERY_PROFILES } from '../utils/queries';
-
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
-  const profiles = data?.profiles || [];
-
-  return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ProfileList
-              profiles={profiles}
-              title="Here's the current roster of friends..."
-            />
-          )}
-        </div>
-      </div>
-    </main>
-  );
+import React from "react";
+const styles = {
+  home: {
+    marginTop: "5rem",
+    textAlign: "center",
+  },
 };
+function Home() {
+  return (
+    <div style={styles.home}>
+      <h1>Welcome to Contextify</h1>
+      <h2>Please choose one of the above sections to get started!</h2>
+    </div>
+  );
+}
 
 export default Home;

@@ -8,12 +8,15 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+import Weight from "./pages/Weight";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Distance from "./pages/Distance";
+import Time from "./pages/Time";
+import Home from "./pages/Home";
 
 // import fonts
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -56,11 +59,20 @@ function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
+            <Route exact path="/weight">
+              <Weight />
+            </Route>
             <Route exact path="/me">
               <Profile />
             </Route>
             <Route exact path="/profiles/:profileId">
               <Profile />
+            </Route>
+            <Route exact path="/distance">
+              <Distance />
+            </Route>
+            <Route exact path="/time">
+              <Time />
             </Route>
           </div>
           {/* <div className="flex flex-col items-center justify-center min-h-screen py-2">
