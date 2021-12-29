@@ -12,7 +12,7 @@ import ProfileList from "../components/ProfileList";
 
 import { QUERY_PROFILES } from "../utils/queries";
 
-const Home = () => {
+const Weight = () => {
   const { loading, data } = useQuery(QUERY_PROFILES);
   const [inputType, setInputType] = useState("Lbs");
 
@@ -50,4 +50,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Weight;

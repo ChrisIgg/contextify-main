@@ -51,13 +51,13 @@ const Header = () => {
         </div>
       </div>
       <div style={styles.links}>
-        <Link className="btn btn-lg btn-primary m-2" to="/me">
+        <Link className="btn btn-lg btn-primary m-2" to="/weight">
           Weight
         </Link>
-        <Link className="btn btn-lg btn-primary m-2" to="/me">
+        <Link className="btn btn-lg btn-primary m-2" to="/distance">
           Distance
         </Link>
-        <Link className="btn btn-lg btn-primary m-2" to="/me">
+        <Link className="btn btn-lg btn-primary m-2" to="/time">
           Time
         </Link>
       </div>
