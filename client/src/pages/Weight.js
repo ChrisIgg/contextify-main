@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { useQuery } from "@apollo/client";
 
 import {
   InputGroup,
@@ -8,12 +7,8 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import ProfileList from "../components/ProfileList";
-
-import { QUERY_PROFILES } from "../utils/queries";
 
 const Weight = () => {
-  const { loading, data } = useQuery(QUERY_PROFILES);
   const [weight, setWeight] = useState("lbs");
   const [output, setOutput] = useState("lbs");
   const [search, setSearch] = useState();
