@@ -9,7 +9,7 @@ function Home() {
   return (
     <div style={styles.home}>
       <h1>Welcome to Contextify</h1>
-      <h2>Please choose one of the above options to get started!</h2>
+      <h2>Please choose one of the above sections to get started!</h2>
     </div>
   );
 }
