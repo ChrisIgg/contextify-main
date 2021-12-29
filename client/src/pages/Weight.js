@@ -91,6 +91,18 @@ const Weight = () => {
       let newWeight = Number(search) * 1000;
       console.log(newWeight);
     }
+    if (weight === "g" && output === "lbs") {
+      let newWeight = Number(search) / 454;
+      console.log(newWeight);
+    }
+    if (weight === "g" && output === "kg") {
+      let newWeight = Number(search) / 1000;
+      console.log(newWeight);
+    }
+    if (weight === "g" && output === "oz") {
+      let newWeight = Number(search) / 28.35;
+      console.log(newWeight);
+    }
     console.log(
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
     );
