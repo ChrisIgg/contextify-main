@@ -7,8 +7,14 @@ const searchSeeds = require("./searchSeeds.json");
 db.once("open", async () => {
   try {
     await Profile.deleteMany({});
+    await Item.deleteMany({});
+    await Search.deleteMany({});
+
     await Profile.create(profileSeeds);
-    await console.log("all done!");
+    await Item.create(itemSeeds);
+    await Search.create(searchSeeds);
+
+    console.log("all done!");
     process.exit(0);
   } catch (err) {
     throw err;
