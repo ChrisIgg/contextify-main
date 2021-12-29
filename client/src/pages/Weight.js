@@ -34,6 +34,9 @@ const Weight = () => {
   function setBanana() {
     setOutput("Bananas");
   }
+  function setKilograms() {
+    setOutput("kg");
+  }
   function pounds() {
     setWeight("lbs");
   }
@@ -43,10 +46,21 @@ const Weight = () => {
   function grams() {
     setWeight("g");
   }
+  function kilograms() {
+    setWeight("kg");
+  }
   function findWeight() {
+    if (weight === output) {
+      console.log(`same output`);
+    }
     if (weight === "lbs" && output === "oz") {
       console.log(`lbs to oz`);
       let newWeight = Number(search) * 16;
+      console.log(newWeight);
+    }
+    if (weight === "lbs" && output === "kg") {
+      console.log(`lbs to kg`);
+      let newWeight = Number(search) / 2.205;
       console.log(newWeight);
     }
     if (weight === "lbs" && output === "g") {
@@ -54,13 +68,33 @@ const Weight = () => {
       let newWeight = Number(search) * 453.592;
       console.log(newWeight);
     }
-    if (weight === "lbs" && output === "lbs") {
-      console.log(`lbs to lbs`);
-      let newWeight = Number(search);
-      console.log(newWeight);
-    }
     if (weight === "lbs" && output === "Bananas") {
       console.log(`lbs to bananas`);
+    }
+    if (weight === "oz" && output === "lbs") {
+      console.log(`oz to lbs`);
+      let newWeight = Number(search) / 16;
+      console.log(newWeight);
+    }
+    if (weight === "oz" && output === "g") {
+      console.log(`oz to g`);
+      let newWeight = Number(search) * 28.3495;
+      console.log(newWeight);
+    }
+    if (weight === "kg" && output === "lbs") {
+      console.log(`kg to lbs`);
+      let newWeight = Number(search) * 2.205;
+      console.log(newWeight);
+    }
+    if (weight === "kg" && output === "oz") {
+      console.log(`kg to oz`);
+      let newWeight = Number(search) * 35.274;
+      console.log(newWeight);
+    }
+    if (weight === "kg" && output === "g") {
+      console.log(`kg to g`);
+      let newWeight = Number(search) * 1000;
+      console.log(newWeight);
     }
     console.log(
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
@@ -83,6 +117,7 @@ const Weight = () => {
             alignRight
           >
             <Dropdown.Item onClick={pounds}>lbs</Dropdown.Item>
+            <Dropdown.Item onClick={kilograms}>kg</Dropdown.Item>
             <Dropdown.Item onClick={oz}>oz</Dropdown.Item>
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
@@ -94,6 +129,7 @@ const Weight = () => {
           id="segmented-button-dropdown-2"
         >
           <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
+          <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
           <Dropdown.Item onClick={setBanana}>Bananas</Dropdown.Item>
