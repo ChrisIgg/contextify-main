@@ -1,24 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
+const styles = {
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  links: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "5rem",
+    wrap: "flex-wrap",
+  },
+};
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
+    <header>
+      <div style={styles.header}>
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            Tech Friends
+          <h1 className="m-0" style={{ fontSize: "3rem" }}>
+            Contextify
           </h1>
         </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Meet your new programming pals.
-        </p>
         <div>
           {Auth.loggedIn() ? (
             <>
@@ -40,6 +49,17 @@ const Header = () => {
             </>
           )}
         </div>
+      </div>
+      <div style={styles.links}>
+        <Link className="btn btn-lg btn-primary m-2" to="/me">
+          Weight
+        </Link>
+        <Link className="btn btn-lg btn-primary m-2" to="/me">
+          Distance
+        </Link>
+        <Link className="btn btn-lg btn-primary m-2" to="/me">
+          Time
+        </Link>
       </div>
     </header>
   );
