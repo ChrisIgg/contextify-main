@@ -17,11 +17,6 @@ import Footer from "./components/Footer";
 import Distance from "./pages/Distance";
 import Time from "./pages/Time";
 import Home from "./pages/Home";
-
-// import fonts
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });

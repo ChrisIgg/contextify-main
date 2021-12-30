@@ -1,8 +1,23 @@
 // import fonts
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faAppleAlt } from "@fortawesome/free-solid-svg-icons";
+// import Weight from '../../pages/Weight';
 
-function IconDisplay () {
-  Array(5).fill(`<FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>`);
-}
+const ImageDisplay = ({ weight }) => {
+  // const newWeight = props.weight;
+  console.log(weight, "image display");
 
+  return (
+    <div>
+      {[...Array(Math.round(weight))].map(() => (
+        <FontAwesomeIcon icon={faAppleAlt} />
+      ))}
+      {/* {weight} */}
+    </div>
+  );
+};
+
+// const createBanana =
+
+export default ImageDisplay;
+// \<FontAwesomeIcon icon="fa-duotone fa-banana" />
