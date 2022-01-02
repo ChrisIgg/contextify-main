@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-// Theres should be four queries in this file: profiles, profile, me, and searches.
+// There should be four queries in this file: profiles, profile, me, and searches.
 // Look to typeDefs in server --> schemas --> typeDefs to verify.
 
 //
