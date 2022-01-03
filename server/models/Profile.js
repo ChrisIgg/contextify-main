@@ -19,10 +19,10 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  skills: [
+  savedSearches: [
     {
-      type: String,
-      trim: true,
+      type: Schema.Types.ObjectId,
+      ref: "Search",
     },
   ],
 });

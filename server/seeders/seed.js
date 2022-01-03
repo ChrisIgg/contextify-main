@@ -8,12 +8,17 @@ db.once("open", async () => {
   try {
     await Profile.deleteMany({});
     await Item.deleteMany({});
-    // await Search.deleteMany({});
+    await Search.deleteMany({});
 
-    await Profile.create(profileSeeds);
-    await Item.create(itemSeeds);
-    // Continuing to work on searchSeeds
+    // await Profile.create(profileSeeds);
+    // await Item.create(itemSeeds);
+    // // Continuing to work on searchSeeds
     // await Search.create(searchSeeds);
+
+    //bulk create each model
+    const profiles = await Profile.insertMany(profileSeeds);
+    const items = await Item.insertMany(itemSeeds);
+    const searches = await Search.insertMany(searchSeeds);
 
     //The for loop is not functional yet, however you can still use the other models and seed data to test out the front-end
     // for (let i = 0; i < itemSeeds.length; i++) {
