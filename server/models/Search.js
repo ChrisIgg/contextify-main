@@ -3,25 +3,26 @@ const { Schema, model } = require("mongoose");
 
 const searchSchema = new Schema({
   // TODO: add model object
-  id: {
-    type: Number,
-    required: true,
-    primaryKey: true,
-    autoIncrement: true,
-  },
+  // Mongoose should autogenerate id
+  // id: {
+  //   type: Number,
+  //   required: false,
+  //   // primaryKey: true,
+  //   // autoIncrement: true,
+  // },
   name: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
     trim: true,
   },
   fieldA: {
-    type: String,
+    type: Number,
     required: true,
   },
   fieldB: [
     {
-      type: String,
+      type: Schema.Types.ObjectId,
       ref: "Item",
     },
   ],
