@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Output from "../components/Output/Output";
 
 import {
   InputGroup,
@@ -12,6 +13,7 @@ const Time = () => {
   const [time, setTime] = useState("min");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("min");
+  const [answer, setAnswer] = useState(null);
 
   const handleInputChange = (e) => setSearch(Number(e.target.value));
   if (search < 0) {
@@ -42,71 +44,56 @@ const Time = () => {
     setTime("day");
   }
   function findTime() {
-    console.log(`finding time`);
-    if (time === "day" && output === "hour") {
-      console.log(`day to hour`);
-      let result = search * 24;
-      console.log(result);
+    if (time === output) {
+      setAnswer(search);
     }
     if (time === "day" && output === "hour") {
-      console.log(`day to hour`);
-      let result = search * 24;
-      console.log(result);
+      setAnswer(search * 24);
+    }
+    if (time === "day" && output === "hour") {
+      setAnswer(search * 24);
     }
     if (time === "day" && output === "min") {
-      console.log(`day to min`);
-      let result = search * 1440;
-      console.log(result);
+      setAnswer(search * 1440);
     }
     if (time === "day" && output === "sec") {
-      console.log(`day to sec`);
-      let result = search * 86400;
-      console.log(result);
+      setAnswer(search * 86400);
     }
     if (time === "hour" && output === "day") {
-      console.log(`hour to day`);
-      let result = search / 24;
-      console.log(result);
+      setAnswer(search / 24);
     }
     if (time === "hour" && output === "min") {
-      console.log(`hour to min`);
-      let result = search * 60;
-      console.log(result);
+      setAnswer(search * 60);
     }
     if (time === "hour" && output === "sec") {
-      console.log(`hour to sec`);
-      let result = search * 3600;
-      console.log(result);
+      setAnswer(search * 3600);
     }
     if (time === "min" && output === "day") {
       console.log(`min to day`);
       let result = search / 1440;
       console.log(result);
+      setAnswer(search / 1440);
     }
     if (time === "min" && output === "hour") {
-      console.log(`min to hour`);
       let result = search / 60;
-      console.log(result);
+      setAnswer(search / 60);
     }
     if (time === "min" && output === "sec") {
-      console.log(`min to sec`);
-      let result = search * 60;
-      console.log(result);
+      setAnswer(search * 60);
     }
     if (time === "sec" && output === "day") {
-      console.log(`sec to day`);
-      let result = search / 86400;
-      console.log(result);
+      setAnswer(search / 86400);
     }
     if (time === "sec" && output === "hour") {
       console.log(`sec to hour`);
       let result = search / 86400;
       console.log(result);
+      setAnswer(search / 86400);
     }
     if (time === "sec" && output === "min") {
       console.log(`sec to min`);
       let result = search / 60;
-      console.log(result);
+      setAnswer(search / 60);
     }
   }
   return (
@@ -143,6 +130,7 @@ const Time = () => {
           <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
         </SplitButton>
         <Button onClick={findTime}>Contextify</Button>
+        <Output answer={answer} output={output} />
       </>
     </main>
   );
