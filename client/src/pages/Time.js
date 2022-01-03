@@ -85,14 +85,9 @@ const Time = () => {
       setAnswer(search / 86400);
     }
     if (time === "sec" && output === "hour") {
-      console.log(`sec to hour`);
-      let result = search / 86400;
-      console.log(result);
       setAnswer(search / 86400);
     }
     if (time === "sec" && output === "min") {
-      console.log(`sec to min`);
-      let result = search / 60;
       setAnswer(search / 60);
     }
   }
