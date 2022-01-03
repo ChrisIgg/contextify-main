@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_PROFILES = gql`
   query allProfiles {
@@ -6,6 +6,19 @@ export const QUERY_PROFILES = gql`
       _id
       name
       skills
+    }
+  }
+`;
+
+export const QUERY_ITEMS = gql`
+  query allItems {
+    items {
+      itemName
+      weight
+      mass
+      diameter
+      distance
+      duration
     }
   }
 `;

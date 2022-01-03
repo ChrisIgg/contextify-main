@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile } = require("../models");
+const { Profile, Item } = require("../models");
 // added Search model, must be sure to connect to update seed and create respective model Constructor
 const { Search } = require("../models");
 const { signToken } = require("../utils/auth");
@@ -9,7 +9,10 @@ const resolvers = {
     profiles: async () => {
       return Profile.find();
     },
-
+    //Added a query to find all items. Currently only banana
+    items: async () => {
+      return Item.find();
+    },
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
     },
