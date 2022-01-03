@@ -1,5 +1,5 @@
 {
-  "name": "tech-friends",
+  "name": "contextify",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -14,6 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^7.0.0"
   }
 }
