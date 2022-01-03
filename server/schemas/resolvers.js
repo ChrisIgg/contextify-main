@@ -1,7 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile, Item } = require("../models");
-// added Search model, must be sure to connect to update seed and create respective model Constructor
-const { Search } = require("../models");
+const { Profile, Item, Search } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
