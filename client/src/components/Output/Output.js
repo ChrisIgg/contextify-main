@@ -5,7 +5,7 @@ const output = ({ answer, output }) => {
     return (
       <div>
         <h1>
-          {answer} {output}
+          {Math.round(answer)} {output}
         </h1>
       </div>
     );

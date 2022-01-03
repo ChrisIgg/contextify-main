@@ -1,6 +1,8 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Profile } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { Profile } = require("../models");
+// added Search model, must be sure to connect to update seed and create respective model Constructor
+const { Search } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -16,7 +18,10 @@ const resolvers = {
       if (context.user) {
         return Profile.findOne({ _id: context.user._id });
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    searches: async () => {
+      return await Search.find({});
     },
   },
 
@@ -31,13 +36,13 @@ const resolvers = {
       const profile = await Profile.findOne({ email });
 
       if (!profile) {
-        throw new AuthenticationError('No profile with this email found!');
+        throw new AuthenticationError("No profile with this email found!");
       }
 
       const correctPw = await profile.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
+        throw new AuthenticationError("Incorrect password!");
       }
 
       const token = signToken(profile);
@@ -45,13 +50,26 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addSkill: async (parent, { profileId, skill }, context) => {
+    // This will allow us to save a recent searches
+    addSearch: async (
+      parent,
+      { searchId, name, weight, mass, diameter, distance, duration },
+      context
+    ) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
-        return Profile.findOneAndUpdate(
-          { _id: profileId },
+        return Search.findOneAndUpdate(
+          { _id: searchId },
           {
-            $addToSet: { skills: skill },
+            $addToSet: {
+              searchId,
+              name,
+              weight,
+              mass,
+              diameter,
+              distance,
+              duration,
+            },
           },
           {
             new: true,
@@ -60,14 +78,14 @@ const resolvers = {
         );
       }
       // If user attempts to execute this mutation and isn't logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeProfile: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOneAndDelete({ _id: context.user._id });
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     // Make it so a logged in user can only remove a skill from their own profile
     removeSkill: async (parent, { skill }, context) => {
@@ -78,7 +96,7 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
