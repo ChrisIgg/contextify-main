@@ -146,7 +146,7 @@ const Weight = () => {
           <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item onClick={setApples}>Bananas</Dropdown.Item>
+          <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
         <ImageDisplay weight={calculatedWeight} />
