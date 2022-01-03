@@ -14,6 +14,19 @@ db.once("open", async () => {
     await Item.create(itemSeeds);
     await Search.create(searchSeeds);
 
+    //The for loop is not functional yet, however you can still use the other models and seed data to test out the front-end
+    // for (let i = 0; i < itemSeeds.length; i++) {
+    //   const { _id, itemName } = await Item.create(itemSeeds[i]);
+    //   const userSearch = await Search.findOneAndUpdate(
+    //     { name: itemName },
+    //     {
+    //       $addToSet: {
+    //         fieldB: _id,
+    //       },
+    //     }
+    //   );
+    //   console.log(userSearch);
+    // }
     console.log("all done!");
     process.exit(0);
   } catch (err) {

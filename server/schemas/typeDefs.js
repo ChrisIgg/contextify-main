@@ -23,7 +23,7 @@ const typeDefs = gql`
   }
   # this is created to represent the preselect items that a user would leverage as a their contextual reference. I am not sure it is needed in TypeDefs, Models, or both files?
   type Items {
-    name: String!
+    itemName: String!
     weight: number
     mass: number
     diameter: number

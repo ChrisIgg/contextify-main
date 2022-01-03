@@ -3,31 +3,31 @@ const { Schema, model } = require("mongoose");
 
 const itemSchema = new Schema({
   // TODO: add item object.
-  name: {
+  itemName: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
     trim: true,
   },
   weight: {
     type: Number,
-    required: true,
+    required: false,
   },
   mass: {
     type: Number,
-    required: true,
+    required: false,
   },
   diameter: {
     type: Number,
-    required: true,
+    required: false,
   },
   distance: {
     type: Number,
-    required: true,
+    required: false,
   },
   duration: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 
