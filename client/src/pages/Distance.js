@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Output from "../components/Output/Output";
 import {
   InputGroup,
   Dropdown,
@@ -10,6 +11,7 @@ function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("ft");
+  const [answer, setAnswer] = useState(null);
   if (search < 0) {
     setSearch(0);
   }
@@ -48,106 +50,68 @@ function Distance() {
     setOutput("banana");
   }
   function findDistance() {
-    console.log(`finding distance...`);
+    if (distance === output) {
+      setAnswer(search);
+    }
     if (distance === "ft" && output === "in") {
-      console.log(`ft to in`);
-      let result = Number(search) * 12;
-      console.log(result);
+      setAnswer(Number(search) * 12);
     }
     if (distance === "ft" && output === "mi") {
-      console.log(`ft to mi`);
-      let result = Number(search) / 5280;
-      console.log(result);
+      setAnswer(Number(search) / 5280);
     }
     if (distance === "ft" && output === "m") {
-      console.log(`ft to m`);
-      let result = Number(search) / 3.281;
-      console.log(result);
+      setAnswer(Number(search) / 3.281);
     }
     if (distance === "ft" && output === "cm") {
-      console.log(`ft to cm`);
-      let result = Number(search) * 30.48;
-      console.log(result);
+      setAnswer(Number(search) * 30.48);
     }
     if (distance === "mi" && output === "m") {
-      console.log(`mi to m`);
-      let result = Number(search) * 1609;
-      console.log(result);
+      setAnswer(Number(search) * 1609);
     }
     if (distance === "mi" && output === "ft") {
-      console.log(`mi to ft`);
-      let result = Number(search) * 5280;
-      console.log(result);
+      setAnswer(Number(search) * 5280);
     }
     if (distance === "mi" && output === "in") {
-      console.log(`mi to in`);
-      let result = Number(search) * 63360;
-      console.log(result);
+      setAnswer(Number(search) * 63360);
     }
     if (distance === "mi" && output === "cm") {
-      console.log(`mi to cm`);
-      let result = Number(search) * 160934;
-      console.log(result);
+      setAnswer(Number(search) * 160934);
     }
     if (distance === "m" && output === "mi") {
-      console.log(`m to mi`);
-      let result = Number(search) / 1609;
-      console.log(result);
+      setAnswer(Number(search) / 1609);
     }
     if (distance === "m" && output === "ft") {
-      console.log(`m to mi`);
-      let result = Number(search) * 3.281;
-      console.log(result);
+      setAnswer(Number(search) * 3.281);
     }
     if (distance === "m" && output === "in") {
-      console.log(`m to in`);
-      let result = Number(search) * 39.37;
-      console.log(result);
+      setAnswer(Number(search) * 39.37);
     }
     if (distance === "m" && output === "cm") {
-      console.log(`m to cm`);
-      let result = Number(search) * 100;
-      console.log(result);
+      setAnswer(Number(search) * 100);
     }
     if (distance === "in" && output === "mi") {
-      console.log(`in to mi`);
-      let result = Number(search) / 63360;
-      console.log(result);
+      setAnswer(Number(search) / 63360);
     }
     if (distance === "in" && output === "m") {
-      console.log(`in to m`);
-      let result = Number(search) / 39.37;
-      console.log(result);
+      setAnswer(Number(search) / 39.37);
     }
     if (distance === "in" && output === "ft") {
-      console.log(`in to ft`);
-      let result = Number(search) / 12;
-      console.log(result);
+      setAnswer(Number(search) / 12);
     }
     if (distance === "in" && output === "cm") {
-      console.log(`in to cm`);
-      let result = Number(search) / 2.54;
-      console.log(result);
+      setAnswer(Number(search) / 2.54);
     }
     if (distance === "cm" && output === "mi") {
-      console.log(`cm to mi`);
-      let result = Number(search) / 160934;
-      console.log(result);
+      setAnswer(Number(search) / 160934);
     }
     if (distance === "cm" && output === "m") {
-      console.log(`cm to m`);
-      let result = Number(search) / 100;
-      console.log(result);
+      setAnswer(Number(search) / 100);
     }
     if (distance === "cm" && output === "ft") {
-      console.log(`cm to ft`);
-      let result = Number(search) / 30.48;
-      console.log(result);
+      setAnswer(Number(search) / 30.48);
     }
     if (distance === "cm" && output === "in") {
-      console.log(`cm to in`);
-      let result = Number(search) / 2.54;
-      console.log(result);
+      setAnswer(Number(search) / 2.54);
     }
   }
   return (
@@ -187,6 +151,7 @@ function Distance() {
           <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
         </SplitButton>
         <Button onClick={findDistance}>Contextify</Button>
+        <Output answer={answer} output={output} />
       </>
     </main>
   );
