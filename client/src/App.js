@@ -70,6 +70,9 @@ function App() {
               <Time />
             </Route>
           </div>
+          {/* <div className="flex flex-col items-center justify-center min-h-screen py-2">
+            <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+          </div> */}
           <Footer />
         </div>
       </Router>

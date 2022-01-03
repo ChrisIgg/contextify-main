@@ -8,10 +8,18 @@ import {
   Button,
 } from "react-bootstrap";
 
+import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
+
 const Weight = () => {
   const [weight, setWeight] = useState("lbs");
   const [output, setOutput] = useState("lbs");
   const [search, setSearch] = useState();
+  const [calculatedWeight, setCalculatedWeight] = useState(0.0);
+
+  if (calculatedWeight < 0.0) {
+    setCalculatedWeight(0.0);
+  }
+
   if (search < 0) {
     setSearch(0);
   }
@@ -64,7 +72,11 @@ const Weight = () => {
       console.log(newWeight);
     }
     if (weight === "lbs" && output === "Bananas") {
-      console.log(`lbs to bananas`);
+      console.log("lbs to bananas");
+      let newWeight = Number(search) * (1 / 0.26455);
+      console.log(newWeight);
+      setCalculatedWeight(newWeight);
+      // send newWeight to ImageDisplay component
     }
     if (weight === "oz" && output === "lbs") {
       console.log(`oz to lbs`);
@@ -95,6 +107,8 @@ const Weight = () => {
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
     );
   }
+  console.log(calculatedWeight, "before return");
+
   return (
     <main>
       <>
@@ -130,6 +144,7 @@ const Weight = () => {
           <Dropdown.Item onClick={setBanana}>Bananas</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
+        <ImageDisplay weight={calculatedWeight} />
       </>
     </main>
   );
