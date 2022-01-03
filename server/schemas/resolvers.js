@@ -4,8 +4,14 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    // profiles: async () => {
+    //   return Profile.find();
+    // },
     profiles: async () => {
-      return Profile.find();
+      return await Profile.find({}).populate("savedSearches").populate({
+        path: "savedSearches",
+        populate: "fieldB",
+      });
     },
     //Added a query to find all items. Currently only banana
     items: async () => {
