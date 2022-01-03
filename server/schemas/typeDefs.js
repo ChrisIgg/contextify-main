@@ -15,8 +15,8 @@ const typeDefs = gql`
   }
 
   type Search {
-    _id: ID
-    name: String
+    # _id: ID
+    searchName: String
     fieldA: String
     # this is for the items that they can search against i.e. bananas
     fieldB: [Items]

@@ -39,6 +39,7 @@ const Weight = () => {
     setOutput("Apples");
   }
   function setKilograms() {
+    setAnswer(null);
     setOutput("kg");
   }
   function pounds() {
@@ -96,6 +97,12 @@ const Weight = () => {
       setAnswer(Number(search) * 1000);
       setOutputAnswer(output);
     }
+    if (weight === "kg" && output === "Apples") {
+      let newWeight = Number(search) / 0.145;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
     if (weight === "g" && output === "lbs") {
       setAnswer(Number(search) / 454);
       setOutputAnswer(output);
@@ -107,6 +114,12 @@ const Weight = () => {
     if (weight === "g" && output === "oz") {
       setAnswer(Number(search) / 28.4);
       setOutputAnswer(output);
+    }
+    if (weight === "g" && output === "Apples") {
+      let newWeight = Number(search) / 145;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
     }
     console.log(
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
@@ -146,7 +159,7 @@ const Weight = () => {
           <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item onClick={setApples}>Bananas</Dropdown.Item>
+          <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
         <ImageDisplay weight={calculatedWeight} />

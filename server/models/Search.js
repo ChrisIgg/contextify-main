@@ -10,11 +10,10 @@ const searchSchema = new Schema({
   //   // primaryKey: true,
   //   // autoIncrement: true,
   // },
-  name: {
+  searchName: {
     type: String,
     // required: true,
-    unique: true,
-    trim: true,
+    // trim: true,
   },
   fieldA: {
     type: Number,
