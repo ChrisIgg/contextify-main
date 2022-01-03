@@ -12,6 +12,7 @@ function Distance() {
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("ft");
   const [answer, setAnswer] = useState(null);
+  const [outputAnswer, setOutputAnswer] = useState();
   if (search < 0) {
     setSearch(0);
   }
@@ -39,6 +40,7 @@ function Distance() {
   }
   function setMeters() {
     setOutput("m");
+    setOutputAnswer(output);
   }
   function setMiles() {
     setOutput("mi");
@@ -55,63 +57,83 @@ function Distance() {
     }
     if (distance === "ft" && output === "in") {
       setAnswer(Number(search) * 12);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "mi") {
       setAnswer(Number(search) / 5280);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "m") {
       setAnswer(Number(search) / 3.281);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "cm") {
       setAnswer(Number(search) * 30.48);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "m") {
       setAnswer(Number(search) * 1609);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "ft") {
       setAnswer(Number(search) * 5280);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "in") {
       setAnswer(Number(search) * 63360);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "cm") {
       setAnswer(Number(search) * 160934);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "mi") {
       setAnswer(Number(search) / 1609);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "ft") {
       setAnswer(Number(search) * 3.281);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "in") {
       setAnswer(Number(search) * 39.37);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "cm") {
       setAnswer(Number(search) * 100);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "mi") {
       setAnswer(Number(search) / 63360);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "m") {
       setAnswer(Number(search) / 39.37);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "ft") {
       setAnswer(Number(search) / 12);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "cm") {
       setAnswer(Number(search) / 2.54);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "mi") {
       setAnswer(Number(search) / 160934);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "m") {
       setAnswer(Number(search) / 100);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "ft") {
       setAnswer(Number(search) / 30.48);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "in") {
       setAnswer(Number(search) / 2.54);
+      setOutputAnswer(output);
     }
   }
   return (
@@ -151,7 +173,7 @@ function Distance() {
           <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
         </SplitButton>
         <Button onClick={findDistance}>Contextify</Button>
-        <Output answer={answer} output={output} />
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );

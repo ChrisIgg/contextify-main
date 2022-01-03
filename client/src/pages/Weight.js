@@ -16,6 +16,7 @@ const Weight = () => {
   const [search, setSearch] = useState();
   const [calculatedWeight, setCalculatedWeight] = useState(0.0);
   const [answer, setAnswer] = useState(null);
+  const [outputAnswer, setOutputAnswer] = useState();
   if (calculatedWeight < 0.0) {
     setCalculatedWeight(0.0);
   }
@@ -55,45 +56,57 @@ const Weight = () => {
   function findWeight() {
     if (weight === output) {
       setAnswer(search);
+      setOutputAnswer(output);
     }
     if (weight === "lbs" && output === "oz") {
       setAnswer(Number(search) * 16);
+      setOutputAnswer(output);
     }
     if (weight === "lbs" && output === "kg") {
       setAnswer(Number(search) / 2.2);
+      setOutputAnswer(output);
     }
     if (weight === "lbs" && output === "g") {
       setAnswer(Number(search) * 453.6);
+      setOutputAnswer(output);
     }
     if (weight === "lbs" && output === "Apples") {
       let newWeight = Number(search) / 0.3;
+      setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
-      // send newWeight to ImageDisplay component
     }
     if (weight === "oz" && output === "lbs") {
       setAnswer(Number(search) / 16);
+      setOutputAnswer(output);
     }
     if (weight === "oz" && output === "g") {
       setAnswer(Number(search) * 28.3);
+      setOutputAnswer(output);
     }
     if (weight === "kg" && output === "lbs") {
       setAnswer(Number(search) * 2.2);
+      setOutputAnswer(output);
     }
     if (weight === "kg" && output === "oz") {
       setAnswer(Number(search) * 35.3);
+      setOutputAnswer(output);
     }
     if (weight === "kg" && output === "g") {
       setAnswer(Number(search) * 1000);
+      setOutputAnswer(output);
     }
     if (weight === "g" && output === "lbs") {
       setAnswer(Number(search) / 454);
+      setOutputAnswer(output);
     }
     if (weight === "g" && output === "kg") {
       setAnswer(Number(search) / 1000);
+      setOutputAnswer(output);
     }
     if (weight === "g" && output === "oz") {
       setAnswer(Number(search) / 28.4);
+      setOutputAnswer(output);
     }
     console.log(
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
@@ -133,11 +146,11 @@ const Weight = () => {
           <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item onClick={setApples}>Bananas</Dropdown.Item>
+          <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
         <ImageDisplay weight={calculatedWeight} />
-        <Output answer={answer} output={output} />
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );

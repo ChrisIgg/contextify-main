@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
+// const searchSchema = require("./Search");
+// console.log(searchSchema);
 
 const profileSchema = new Schema({
   name: {
