@@ -8,11 +8,11 @@ db.once("open", async () => {
   try {
     await Profile.deleteMany({});
     await Item.deleteMany({});
-    await Search.deleteMany({});
+    // await Search.deleteMany({});
 
     await Profile.create(profileSeeds);
     await Item.create(itemSeeds);
-    await Search.create(searchSeeds);
+    // await Search.create(searchSeeds);
 
     //The for loop is not functional yet, however you can still use the other models and seed data to test out the front-end
     // for (let i = 0; i < itemSeeds.length; i++) {

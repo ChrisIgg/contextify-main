@@ -24,11 +24,11 @@ const typeDefs = gql`
   # this is created to represent the preselect items that a user would leverage as a their contextual reference. I am not sure it is needed in TypeDefs, Models, or both files?
   type Items {
     itemName: String!
-    weight: number
-    mass: number
-    diameter: number
-    distance: number
-    duration: number
+    weight: Int
+    mass: Int
+    diameter: Int
+    distance: Int
+    duration: Int
   }
 
   type Query {
@@ -45,11 +45,11 @@ const typeDefs = gql`
     addSearch(
       searchId: ID!
       name: String!
-      weight: number
-      mass: number
-      diameter: number
-      distance: number
-      duration: number
+      weight: Int
+      mass: Int
+      diameter: Int
+      distance: Int
+      duration: Int
     ): Search
     removeProfile: Profile
     removeSkill(skill: String!): Profile
