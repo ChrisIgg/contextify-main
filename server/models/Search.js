@@ -19,11 +19,14 @@ const searchSchema = new Schema({
     type: Number,
     required: true,
   },
+  // must add Unit A
+
   fieldB: [
     {
       type: Schema.Types.ObjectId,
       ref: "Item",
     },
+    // must add Unit B
   ],
 });
 
