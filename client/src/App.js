@@ -42,8 +42,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+        <div
+          className="flex-column justify-flex-start min-100-vh"
+          style={{
+            backgroundColor: "#48ACF0",
+          }}
+        >
+          <Header
+            style={{
+              backgroundColor: "#D8DBE2",
+            }}
+          />
           <div className="container">
             <Route exact path="/">
               <Home />
