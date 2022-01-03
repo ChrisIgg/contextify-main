@@ -14,7 +14,7 @@ const Time = () => {
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("min");
   const [answer, setAnswer] = useState(null);
-
+  const [outputAnswer, setOutputAnswer] = useState();
   const handleInputChange = (e) => setSearch(Number(e.target.value));
   if (search < 0) {
     setSearch(0);
@@ -49,46 +49,55 @@ const Time = () => {
     }
     if (time === "day" && output === "hour") {
       setAnswer(search * 24);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "hour") {
       setAnswer(search * 24);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "min") {
       setAnswer(search * 1440);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "sec") {
       setAnswer(search * 86400);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "day") {
       setAnswer(search / 24);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "min") {
       setAnswer(search * 60);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "sec") {
       setAnswer(search * 3600);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "day") {
-      console.log(`min to day`);
-      let result = search / 1440;
-      console.log(result);
       setAnswer(search / 1440);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "hour") {
-      let result = search / 60;
       setAnswer(search / 60);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "sec") {
       setAnswer(search * 60);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "day") {
       setAnswer(search / 86400);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "hour") {
       setAnswer(search / 86400);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "min") {
       setAnswer(search / 60);
+      setOutputAnswer(output);
     }
   }
   return (
@@ -125,7 +134,7 @@ const Time = () => {
           <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
         </SplitButton>
         <Button onClick={findTime}>Contextify</Button>
-        <Output answer={answer} output={output} />
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );
