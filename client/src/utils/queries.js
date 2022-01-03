@@ -18,11 +18,9 @@ export const QUERY_PROFILES = gql`
 `;
 
 export const QUERY_SINGLE_PROFILE = gql`
-# query (queryName($What it takes in: What it returns)) {
-# queryName from typeDef(name)
-# }
-
-}
+  # query (queryName($What it takes in: What it returns)) {
+  # queryName from typeDef(name)
+  # }
   query singleProfile($profileId: ID!) {
     profile(profileId: $profileId) {
       _id
