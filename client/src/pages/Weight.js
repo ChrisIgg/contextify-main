@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-
+import Output from "../components/Output/Output";
 import {
   InputGroup,
   Dropdown,
@@ -12,6 +12,21 @@ const Weight = () => {
   const [weight, setWeight] = useState("lbs");
   const [output, setOutput] = useState("lbs");
   const [search, setSearch] = useState();
+  const [show, setShow] = useState(false);
+  const [answer, setAnswer] = useState(null);
+
+  function displayAnswer() {
+    setShow(true);
+  }
+  function Answer() {
+    if (show === true) {
+      return (
+        <div>
+          <h2>this is the output section</h2>
+        </div>
+      );
+    }
+  }
   if (search < 0) {
     setSearch(0);
   }
@@ -46,61 +61,74 @@ const Weight = () => {
   }
   function findWeight() {
     if (weight === output) {
+      setAnswer(search);
       console.log(`same output`);
     }
     if (weight === "lbs" && output === "oz") {
       console.log(`lbs to oz`);
       let newWeight = Number(search) * 16;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "lbs" && output === "kg") {
       console.log(`lbs to kg`);
       let newWeight = Number(search) / 2.205;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "lbs" && output === "g") {
       console.log(`lbs to g`);
       let newWeight = Number(search) * 453.592;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "lbs" && output === "Bananas") {
       console.log(`lbs to bananas`);
+      let newWeight = Number(search);
     }
     if (weight === "oz" && output === "lbs") {
       console.log(`oz to lbs`);
       let newWeight = Number(search) / 16;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "oz" && output === "g") {
       console.log(`oz to g`);
       let newWeight = Number(search) * 28.3495;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "kg" && output === "lbs") {
       console.log(`kg to lbs`);
       let newWeight = Number(search) * 2.205;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "kg" && output === "oz") {
       console.log(`kg to oz`);
       let newWeight = Number(search) * 35.274;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "kg" && output === "g") {
       console.log(`kg to g`);
       let newWeight = Number(search) * 1000;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "g" && output === "lbs") {
       let newWeight = Number(search) / 454;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "g" && output === "kg") {
       let newWeight = Number(search) / 1000;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     if (weight === "g" && output === "oz") {
       let newWeight = Number(search) / 28.35;
+      setAnswer(newWeight);
       console.log(newWeight);
     }
     console.log(
@@ -142,6 +170,7 @@ const Weight = () => {
           <Dropdown.Item onClick={setBanana}>Bananas</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
+        <Output answer={answer} output={output} />
       </>
     </main>
   );
