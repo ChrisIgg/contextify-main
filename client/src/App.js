@@ -42,38 +42,40 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
-          <div className="container">
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/weight">
-              <Weight />
-            </Route>
-            <Route exact path="/me">
-              <Profile />
-            </Route>
-            <Route exact path="/profiles/:profileId">
-              <Profile />
-            </Route>
-            <Route exact path="/distance">
-              <Distance />
-            </Route>
-            <Route exact path="/time">
-              <Time />
-            </Route>
-          </div>
-          {/* <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <div className="flex-column justify-flex-start min-100-vh container-c">
+          <div id="cloud-intro">
+            <Header />
+            <div className="container">
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/signup">
+                <Signup />
+              </Route>
+              <Route exact path="/weight">
+                <Weight />
+              </Route>
+              <Route exact path="/me">
+                <Profile />
+              </Route>
+              <Route exact path="/profiles/:profileId">
+                <Profile />
+              </Route>
+              <Route exact path="/distance">
+                <Distance />
+              </Route>
+              <Route exact path="/time">
+                <Time />
+              </Route>
+              <Footer />
+            </div>
+            {/* <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
           </div> */}
-          <Footer />
+          </div>
         </div>
       </Router>
     </ApolloProvider>
