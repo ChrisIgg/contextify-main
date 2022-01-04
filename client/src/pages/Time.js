@@ -226,10 +226,9 @@ const Time = () => {
           <button className="contex-btn" onClick={findTime}>
             Contextify
           </button>
-          <OutputDisplay weight={calculatedWeight} output={output} />
-
-          <Output answer={answer} output={outputAnswer} />
         </div>
+        <OutputDisplay weight={calculatedWeight} output={output} />
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );

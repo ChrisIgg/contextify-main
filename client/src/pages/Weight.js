@@ -240,9 +240,9 @@ const Weight = () => {
           <button className="contex-btn" onClick={findWeight}>
             Contextify
           </button>
-          <OutputDisplay weight={calculatedWeight} output={output} />
-          <Output answer={answer} output={outputAnswer} />
         </div>
+        <OutputDisplay weight={calculatedWeight} output={output} />
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );
