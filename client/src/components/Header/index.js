@@ -15,7 +15,7 @@ const styles = {
   links: {
     display: "flex",
     justifyContent: "center",
-    gap: "5rem",
+    // gap: "5rem",
     wrap: "flex-wrap",
   },
   buttonFont: {
