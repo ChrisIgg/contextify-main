@@ -62,7 +62,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <h1 class="proj-title">Contextify</h1>
+      <h1 className="proj-title">Contextify</h1>
       <div style={styles.links}>
         <Link className="proj-btn" to="/weight" style={styles.buttonFont}>
           Weight

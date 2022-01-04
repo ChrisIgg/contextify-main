@@ -1,39 +1,33 @@
-// import fonts
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faAppleAlt } from "@fortawesome/free-solid-svg-icons";
-// import Weight from '../../pages/Weight';
-import apple from "../../assets/apple.png";
-import water from "../../assets/droplet.png";
-import elephant from "../../assets/elephant.png";
+import phone from "../../assets/phone.png";
+import bus from "../../assets/bus.png";
+import football from "../../assets/football.png";
 
 const OutputDisplay = ({ weight, output }) => {
-  if (output === "Apples") {
-    return ImageDisplay({ weight });
-  } else if (output === "Droplets") {
-    return WaterDisplay({ weight });
-  } else if (output === "Elephant") {
-    return ElephantDisplay({ weight });
+  if (output === "Phone") {
+    return PhoneDisplay({ weight });
+  } else if (output === "Bus") {
+    return BusDisplay({ weight });
+  } else if (output === "Football") {
+    return FootballDisplay({ weight });
   }
   return <div></div>;
 };
 
-const ImageDisplay = ({ weight }) => {
+const PhoneDisplay = ({ weight }) => {
   if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={apple} height="50" />
+          <img src={phone} height="50" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={apple} height="25" />
+          <img src={phone} height="25" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 1200) {
@@ -42,31 +36,28 @@ const ImageDisplay = ({ weight }) => {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={apple} height="60" />
+          <img src={phone} height="60" />
         ))}
-        {/* {weight} */}
       </div>
     );
   }
 };
 
-const WaterDisplay = ({ weight }) => {
+const BusDisplay = ({ weight }) => {
   if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={water} height="50" />
+          <img src={bus} height="50" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={water} height="25" />
+          <img src={bus} height="25" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 1200) {
@@ -75,31 +66,28 @@ const WaterDisplay = ({ weight }) => {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={water} height="60" />
+          <img src={bus} height="60" />
         ))}
-        {/* {weight} */}
       </div>
     );
   }
 };
 
-const ElephantDisplay = ({ weight }) => {
+const FootballDisplay = ({ weight }) => {
   if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={elephant} height="50" />
+          <img src={football} height="50" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={elephant} height="25" />
+          <img src={football} height="25" />
         ))}
-        {/* {weight} */}
       </div>
     );
   } else if (weight > 1200) {
@@ -108,15 +96,11 @@ const ElephantDisplay = ({ weight }) => {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={elephant} height="60" />
+          <img src={football} height="60" />
         ))}
-        {/* {weight} */}
       </div>
     );
   }
 };
-
-// const createBanana =
 
 export default OutputDisplay;
-// \<FontAwesomeIcon icon="fa-duotone fa-banana" />
