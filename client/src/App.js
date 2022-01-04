@@ -38,6 +38,16 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// Style for first div under <Router> (blue background color)
+//style={{
+// backgroundColor: "#48ACF0",
+//}}
+
+// Style for Header
+//  style={{
+//     backgroundColor: "#D8DBE2",
+//   }}
+
 function App() {
   return (
     <ApolloProvider client={client}>

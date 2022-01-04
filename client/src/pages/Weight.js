@@ -11,6 +11,16 @@ import {
 import "../styles/Weight.css";
 
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 const Weight = () => {
   const [weight, setWeight] = useState("lbs");
@@ -117,7 +127,9 @@ const Weight = () => {
   console.log(calculatedWeight, "before return");
 
   return (
-    <main class="weight-body">
+
+    <main class="weight-body" style={styles.font}>
+
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -138,7 +150,8 @@ const Weight = () => {
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output weight in...</h2>
+
+        <h2 style={styles.centerText} >Output weight in...</h2>
         <div class="contextify-section">
           <SplitButton
             variant="outline-secondary"
@@ -153,6 +166,7 @@ const Weight = () => {
           </SplitButton>
           <Button onClick={findWeight}>Contextify</Button>
         </div>
+
         <ImageDisplay weight={calculatedWeight} />
         <Output answer={answer} output={outputAnswer} />
       </>

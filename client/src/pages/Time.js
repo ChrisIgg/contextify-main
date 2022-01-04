@@ -8,6 +8,16 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 import "../styles/Time.css";
 
@@ -103,7 +113,8 @@ const Time = () => {
     }
   }
   return (
-    <main class="time-body">
+    <main class="time-body" style={styles.font}>
+
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -124,7 +135,8 @@ const Time = () => {
             <Dropdown.Item onClick={seconds}>sec</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output time in...</h2>
+
+        <h2 style={styles.centerText}>Output time in...</h2>
         <div class="contextify-section">
           <SplitButton
             variant="outline-secondary"
@@ -138,6 +150,7 @@ const Time = () => {
           </SplitButton>
           <Button onClick={findTime}>Contextify</Button>
         </div>
+
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
