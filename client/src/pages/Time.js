@@ -9,13 +9,20 @@ import {
   Button,
 } from "react-bootstrap";
 
+import OutputDisplay from "../components/ImagesDisplay/TimeDisplay.js";
+
 const Time = () => {
   const [time, setTime] = useState("min");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("min");
+  const [calculatedWeight, setCalculatedWeight] = useState(0.0);
   const [answer, setAnswer] = useState(null);
   const [outputAnswer, setOutputAnswer] = useState();
   const handleInputChange = (e) => setSearch(Number(e.target.value));
+  if (calculatedWeight < 0.0) {
+    setCalculatedWeight(0.0);
+  }
+
   if (search < 0) {
     setSearch(0);
   }
@@ -54,6 +61,30 @@ const Time = () => {
     if (time === "day" && output === "hour") {
       setAnswer(search * 24);
       setOutputAnswer(output);
+    }
+    if (time === "day" && output === "Day") {
+      let newWeight = Number(search);
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "day" && output === "Baths") {
+      let newWeight = Number(search) * 12;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "day" && output === "Reheating") {
+      let newWeight = Number(search) * 1440 * 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "day" && output === "Stopwatch") {
+      let newWeight = Number(search) * 1440;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
     }
     if (time === "day" && output === "min") {
       setAnswer(search * 1440);
@@ -134,6 +165,7 @@ const Time = () => {
           <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
         </SplitButton>
         <Button onClick={findTime}>Contextify</Button>
+        <OutputDisplay weight={calculatedWeight} output={output} />
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
