@@ -6,10 +6,10 @@ import {
   Dropdown,
   SplitButton,
   FormControl,
-  Button,
 } from "react-bootstrap";
 import "../styles/Time.css";
 import "../styles/button.css";
+import OutputDisplay from "../components/ImagesDisplay/TimeDisplay.js";
 
 const styles = {
   font: {
@@ -21,8 +21,6 @@ const styles = {
   // centerText: { fontFamily: "Roboto, sans-serif" },
   centerText: { fontFamily: "Source Sans Pro, sans-serif" },
 };
-
-import OutputDisplay from "../components/ImagesDisplay/TimeDisplay.js";
 
 const Time = () => {
   const [time, setTime] = useState("min");
@@ -188,7 +186,7 @@ const Time = () => {
     }
   }
   return (
-    <main class="time-body" style={styles.font}>
+    <main className="time-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -211,7 +209,7 @@ const Time = () => {
         </InputGroup>
 
         <h2 style={styles.centerText}>Output time in...</h2>
-        <div class="contextify-section">
+        <div className="contextify-section">
           <SplitButton
             variant="outline-secondary"
             title={output}

@@ -200,7 +200,7 @@ const Weight = () => {
   }
 
   return (
-    <main class="weight-body" style={styles.font}>
+    <main className="weight-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -223,7 +223,7 @@ const Weight = () => {
           </SplitButton>
         </InputGroup>
         <h2 style={styles.centerText}>Output Weight in...</h2>
-        <div class="contextify-section">
+        <div className="contextify-section">
           <SplitButton
             variant="outline-secondary"
             title={output}

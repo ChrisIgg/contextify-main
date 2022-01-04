@@ -8,9 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 
-<<<<<<< HEAD
 import OutputDisplay from "../components/ImagesDisplay/DistanceDisplay.js";
-=======
 import "../styles/Distance.css";
 import "../styles/button.css";
 
@@ -24,7 +22,6 @@ const styles = {
   // centerText: { fontFamily: "Roboto, sans-serif" },
   centerText: { fontFamily: "Source Sans Pro, sans-serif" },
 };
->>>>>>> main
 
 function Distance() {
   const [distance, setDistance] = useState("ft");
@@ -227,7 +224,7 @@ function Distance() {
     }
   }
   return (
-    <main class="dist-body" style={styles.font}>
+    <main className="dist-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -250,26 +247,26 @@ function Distance() {
           </SplitButton>
         </InputGroup>
         <h2 style={styles.centerText}>Output distance in...</h2>
-        <div class="contextify-section">
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
-          <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
-          <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
-          <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
-          <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
-          <Dropdown.Item onClick={setPhone}>Phone</Dropdown.Item>
-          <Dropdown.Item onClick={setBus}>Bus</Dropdown.Item>
-          <Dropdown.Item onClick={setFootball}>Football</Dropdown.Item>
-        </SplitButton>
-        <button className="contex-btn" onClick={findDistance}>
+        <div className="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
+            <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
+            <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
+            <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
+            <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
+            <Dropdown.Item onClick={setPhone}>Phone</Dropdown.Item>
+            <Dropdown.Item onClick={setBus}>Bus</Dropdown.Item>
+            <Dropdown.Item onClick={setFootball}>Football</Dropdown.Item>
+          </SplitButton>
+          <button className="contex-btn" onClick={findDistance}>
             Contextify
           </button>
-        <OutputDisplay weight={calculatedWeight} output={output} />
-        <Output answer={answer} output={outputAnswer} />
+          <OutputDisplay weight={calculatedWeight} output={output} />
+          <Output answer={answer} output={outputAnswer} />
         </div>
       </>
     </main>
