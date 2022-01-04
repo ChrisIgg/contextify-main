@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 import "../../styles/Header.css";
+import "../../styles/Buttons.css";
 
 const styles = {
   header: {
@@ -24,27 +25,22 @@ const Header = () => {
   return (
     <header>
       <div style={styles.header}>
-        <Link className="text-dark" to="/">
-          {/* <h1 className="m-0" style={{ fontSize: "3rem" }}>
-            Contextify
-          </h1> */}
-        </Link>
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/me">
+              <Link className="proj-btn" to="/me">
                 View My Profile
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="proj-btn" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
+              <Link className="proj-btn" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="signup-btn" to="/signup">
                 Signup
               </Link>
             </>
@@ -53,13 +49,13 @@ const Header = () => {
       </div>
       <h1 class="proj-title">Contextify</h1>
       <div style={styles.links}>
-        <Link className="btn btn-lg btn-primary m-2" to="/weight">
+        <Link className="proj-btn" to="/weight">
           Weight
         </Link>
-        <Link className="btn btn-lg btn-primary m-2" to="/distance">
+        <Link className="proj-btn" to="/distance">
           Distance
         </Link>
-        <Link className="btn btn-lg btn-primary m-2" to="/time">
+        <Link className="proj-btn-time" to="/time">
           Time
         </Link>
       </div>

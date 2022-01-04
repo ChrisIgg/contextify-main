@@ -9,7 +9,10 @@ import {
   Button,
 } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 import "../styles/Time.css";
+import "../styles/Buttons.css";
 
 const Time = () => {
   const [time, setTime] = useState("min");
@@ -136,7 +139,9 @@ const Time = () => {
             <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
             <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findTime}>Contextify</Button>
+          <Link className="contex-btn" onClick={findTime}>
+            Contextify
+          </Link>
         </div>
         <Output answer={answer} output={outputAnswer} />
       </>

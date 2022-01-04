@@ -7,7 +7,12 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+
+import { Link } from "react-router-dom";
+
 import "../styles/Distance.css";
+import "../styles/Buttons.css";
+
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
@@ -174,7 +179,9 @@ function Distance() {
             <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
             <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findDistance}>Contextify</Button>
+          <Link className="contex-btn" onClick={findDistance}>
+            Contextify
+          </Link>
         </div>
         <Output answer={answer} output={outputAnswer} />
       </>

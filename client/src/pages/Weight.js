@@ -8,7 +8,10 @@ import {
   Button,
 } from "react-bootstrap";
 
+import { Link } from "react-router-dom";
+
 import "../styles/Weight.css";
+import "../styles/Buttons.css";
 
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
 
@@ -151,7 +154,9 @@ const Weight = () => {
             <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
             <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findWeight}>Contextify</Button>
+          <Link className="contex-btn" onClick={findWeight}>
+            Contextify
+          </Link>
         </div>
         <ImageDisplay weight={calculatedWeight} />
         <Output answer={answer} output={outputAnswer} />
