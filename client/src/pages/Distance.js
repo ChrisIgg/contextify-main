@@ -21,8 +21,6 @@ const styles = {
   centerText: { fontFamily: "Source Sans Pro, sans-serif" },
 };
 
-
- main
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
@@ -154,7 +152,6 @@ function Distance() {
   }
   return (
     <main class="dist-body" style={styles.font}>
-
       <>
         <InputGroup className="mb-3">
           <FormControl
