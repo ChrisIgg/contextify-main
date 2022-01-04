@@ -8,10 +8,25 @@ import {
   Button,
 } from "react-bootstrap";
 
+
 import { Link } from "react-router-dom";
 
 import "../styles/Distance.css";
 import "../styles/Buttons.css";
+
+import "../styles/Distance.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
+
 
 function Distance() {
   const [distance, setDistance] = useState("ft");
@@ -143,7 +158,7 @@ function Distance() {
     }
   }
   return (
-    <main class="dist-body">
+    <main class="dist-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -165,7 +180,8 @@ function Distance() {
             <Dropdown.Item onClick={centimeters}>cm</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output distance in...</h2>
+
+        <h2 style={styles.centerText}>Output distance in...</h2>
         <div class="contextify-section">
           <SplitButton
             variant="outline-secondary"

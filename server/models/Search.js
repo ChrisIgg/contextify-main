@@ -22,6 +22,17 @@ const searchSchema = new Schema({
     type: Number,
     required: true,
   },
+
+  // must add Unit A
+
+  fieldB: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Item",
+    },
+    // must add Unit B
+  ],
+
   fieldB: {
     type: String,
   },
@@ -31,6 +42,7 @@ const searchSchema = new Schema({
   //     ref: "Item",
   //   },
   // ],
+
 });
 
 const Search = model("Search", searchSchema);

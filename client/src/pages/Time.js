@@ -9,10 +9,24 @@ import {
   Button,
 } from "react-bootstrap";
 
+
 import { Link } from "react-router-dom";
+
+
 
 import "../styles/Time.css";
 import "../styles/Buttons.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 const Time = () => {
   const [time, setTime] = useState("min");
@@ -106,7 +120,7 @@ const Time = () => {
     }
   }
   return (
-    <main class="time-body">
+    <main class="time-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -127,7 +141,8 @@ const Time = () => {
             <Dropdown.Item onClick={seconds}>sec</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output time in...</h2>
+
+        <h2 style={styles.centerText}>Output time in...</h2>
         <div class="contextify-section">
           <SplitButton
             variant="outline-secondary"
@@ -143,6 +158,7 @@ const Time = () => {
             Contextify
           </Link>
         </div>
+
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
