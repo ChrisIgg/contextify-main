@@ -8,7 +8,19 @@ import {
   Button,
 } from "react-bootstrap";
 
+import "../styles/Weight.css";
+
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 const Weight = () => {
   const [weight, setWeight] = useState("lbs");
@@ -115,7 +127,9 @@ const Weight = () => {
   console.log(calculatedWeight, "before return");
 
   return (
-    <main>
+
+    <main class="weight-body" style={styles.font}>
+
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -136,19 +150,23 @@ const Weight = () => {
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output weight in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
-          <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
-          <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
-          <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findWeight}>Contextify</Button>
+
+        <h2 style={styles.centerText} >Output weight in...</h2>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
+            <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
+            <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
+            <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
+            <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findWeight}>Contextify</Button>
+        </div>
+
         <ImageDisplay weight={calculatedWeight} />
         <Output answer={answer} output={outputAnswer} />
       </>

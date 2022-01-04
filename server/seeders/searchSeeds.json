@@ -3,10 +3,5 @@
     "searchName": "example",
     "fieldA": 172,
     "fieldB": "bananas"
-  },
-  {
-    "searchName": "example2",
-    "fieldA": 150,
-    "fieldB": "apples"
   }
 ]

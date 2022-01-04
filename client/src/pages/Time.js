@@ -8,6 +8,18 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
+
+import "../styles/Time.css";
 
 const Time = () => {
   const [time, setTime] = useState("min");
@@ -101,7 +113,8 @@ const Time = () => {
     }
   }
   return (
-    <main>
+    <main class="time-body" style={styles.font}>
+
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -122,18 +135,22 @@ const Time = () => {
             <Dropdown.Item onClick={seconds}>sec</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output time in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
-          <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
-          <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
-          <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findTime}>Contextify</Button>
+
+        <h2 style={styles.centerText}>Output time in...</h2>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
+            <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
+            <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
+            <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findTime}>Contextify</Button>
+        </div>
+
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
