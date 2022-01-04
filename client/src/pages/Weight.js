@@ -8,9 +8,10 @@ import {
   Button,
 } from "react-bootstrap";
 
+import OutputDisplay from "../components/ImagesDisplay/ImagesDisplay";
 import "../styles/Weight.css";
+import "../styles/button.css";
 
-import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
 const styles = {
   font: {
     fontFamily: "Ubuntu, sans-serif",
@@ -41,6 +42,12 @@ const Weight = () => {
   function setPounds() {
     setOutput("lbs");
   }
+  function setElephants() {
+    setOutput("Elephants");
+  }
+  function setDroplets() {
+    setOutput("Droplets");
+  }
   function setOunces() {
     setOutput("oz");
   }
@@ -51,6 +58,7 @@ const Weight = () => {
     setOutput("Apples");
   }
   function setKilograms() {
+    setAnswer(null);
     setOutput("kg");
   }
   function pounds() {
@@ -88,6 +96,18 @@ const Weight = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
+    if (weight === "lbs" && output === "Droplets") {
+      let newWeight = Number(search) / 0.00011;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "lbs" && output === "Elephants") {
+      let newWeight = Number(search) / 10000;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
     if (weight === "oz" && output === "lbs") {
       setAnswer(Number(search) / 16);
       setOutputAnswer(output);
@@ -95,6 +115,24 @@ const Weight = () => {
     if (weight === "oz" && output === "g") {
       setAnswer(Number(search) * 28.3);
       setOutputAnswer(output);
+    }
+    if (weight === "oz" && output === "Apples") {
+      let newWeight = Number(search) / 5.1;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "oz" && output === "Droplets") {
+      let newWeight = Number(search) / 0.0017;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "oz" && output === "Elephants") {
+      let newWeight = Number(search) / 16 / 10000;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
     }
     if (weight === "kg" && output === "lbs") {
       setAnswer(Number(search) * 2.2);
@@ -108,6 +146,24 @@ const Weight = () => {
       setAnswer(Number(search) * 1000);
       setOutputAnswer(output);
     }
+    if (weight === "kg" && output === "Apples") {
+      let newWeight = Number(search) / 0.145;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "kg" && output === "Droplets") {
+      let newWeight = Number(search) / 0.00005;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "kg" && output === "Elephants") {
+      let newWeight = (Number(search) * 2.2) / 10000;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
     if (weight === "g" && output === "lbs") {
       setAnswer(Number(search) / 454);
       setOutputAnswer(output);
@@ -120,16 +176,31 @@ const Weight = () => {
       setAnswer(Number(search) / 28.4);
       setOutputAnswer(output);
     }
+    if (weight === "g" && output === "Apples") {
+      let newWeight = Number(search) / 145;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "g" && output === "Droplets") {
+      let newWeight = Number(search) / 0.05;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "g" && output === "Elephants") {
+      let newWeight = Number(search) / 454 / 10000;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
     console.log(
       `userWeight: ${search} \n weightType: ${weight} \n outputType: ${output}`
     );
   }
-  console.log(calculatedWeight, "before return");
 
   return (
-
-    <main class="weight-body" style={styles.font}>
-
+    <main className="weight-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -142,6 +213,7 @@ const Weight = () => {
             variant="outline-secondary"
             title={weight}
             id="segmented-button-dropdown-2"
+            className="proj-btn"
             alignRight
           >
             <Dropdown.Item onClick={pounds}>lbs</Dropdown.Item>
@@ -150,9 +222,8 @@ const Weight = () => {
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-
-        <h2 style={styles.centerText} >Output weight in...</h2>
-        <div class="contextify-section">
+        <h2 style={styles.centerText}>Output Weight in...</h2>
+        <div className="contextify-section">
           <SplitButton
             variant="outline-secondary"
             title={output}
@@ -163,11 +234,14 @@ const Weight = () => {
             <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
             <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
             <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
+            <Dropdown.Item onClick={setDroplets}>Droplets</Dropdown.Item>
+            <Dropdown.Item onClick={setElephants}>Elephants</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findWeight}>Contextify</Button>
+          <button className="contex-btn" onClick={findWeight}>
+            Contextify
+          </button>
         </div>
-
-        <ImageDisplay weight={calculatedWeight} />
+        <OutputDisplay weight={calculatedWeight} output={output} />
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>

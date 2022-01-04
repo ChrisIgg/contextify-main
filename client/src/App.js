@@ -7,7 +7,6 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
 import Weight from "./pages/Weight";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
@@ -80,11 +79,11 @@ function App() {
               <Route exact path="/time">
                 <Time />
               </Route>
-              <Footer />
             </div>
             {/* <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
           </div> */}
+            <Footer />
           </div>
         </div>
       </Router>
