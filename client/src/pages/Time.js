@@ -8,6 +8,19 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../styles/Time.css";
+import "../styles/button.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 import OutputDisplay from "../components/ImagesDisplay/TimeDisplay.js";
 
@@ -175,7 +188,7 @@ const Time = () => {
     }
   }
   return (
-    <main>
+    <main class="time-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -196,23 +209,29 @@ const Time = () => {
             <Dropdown.Item onClick={seconds}>sec</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output time in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
-          <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
-          <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
-          <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
-          <Dropdown.Item onClick={setPopcorn}>Popcorn</Dropdown.Item>
-          <Dropdown.Item onClick={setBaths}>Baths</Dropdown.Item>
-          <Dropdown.Item onClick={setWorkday}>Workday</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findTime}>Contextify</Button>
-        <OutputDisplay weight={calculatedWeight} output={output} />
-        <Output answer={answer} output={outputAnswer} />
+
+        <h2 style={styles.centerText}>Output time in...</h2>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
+            <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
+            <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
+            <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+            <Dropdown.Item onClick={setPopcorn}>Popcorn</Dropdown.Item>
+            <Dropdown.Item onClick={setBaths}>Baths</Dropdown.Item>
+            <Dropdown.Item onClick={setWorkday}>Workday</Dropdown.Item>
+          </SplitButton>
+          <button className="contex-btn" onClick={findTime}>
+            Contextify
+          </button>
+          <OutputDisplay weight={calculatedWeight} output={output} />
+
+          <Output answer={answer} output={outputAnswer} />
+        </div>
       </>
     </main>
   );

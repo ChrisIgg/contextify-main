@@ -8,7 +8,23 @@ import {
   Button,
 } from "react-bootstrap";
 
+<<<<<<< HEAD
 import OutputDisplay from "../components/ImagesDisplay/DistanceDisplay.js";
+=======
+import "../styles/Distance.css";
+import "../styles/button.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
+>>>>>>> main
 
 function Distance() {
   const [distance, setDistance] = useState("ft");
@@ -211,7 +227,7 @@ function Distance() {
     }
   }
   return (
-    <main>
+    <main class="dist-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -233,7 +249,8 @@ function Distance() {
             <Dropdown.Item onClick={centimeters}>cm</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output distance in...</h2>
+        <h2 style={styles.centerText}>Output distance in...</h2>
+        <div class="contextify-section">
         <SplitButton
           variant="outline-secondary"
           title={output}
@@ -248,9 +265,12 @@ function Distance() {
           <Dropdown.Item onClick={setBus}>Bus</Dropdown.Item>
           <Dropdown.Item onClick={setFootball}>Football</Dropdown.Item>
         </SplitButton>
-        <Button onClick={findDistance}>Contextify</Button>
+        <button className="contex-btn" onClick={findDistance}>
+            Contextify
+          </button>
         <OutputDisplay weight={calculatedWeight} output={output} />
         <Output answer={answer} output={outputAnswer} />
+        </div>
       </>
     </main>
   );
