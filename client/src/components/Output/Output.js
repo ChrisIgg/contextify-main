@@ -1,3 +1,7 @@
+import { React } from "react";
+
+import Confirm from "../Confirm/Confirm";
+const Output = ({ answer, output }) => {
 import React from "react";
 const styles = {
   font: {
@@ -11,10 +15,11 @@ const output = ({ answer, output }) => {
         <h1>
           {Math.round(answer)} {output}
         </h1>
+        <Confirm />
       </div>
     );
   }
   return <div></div>;
 };
 
-export default output;
+export default Output;
