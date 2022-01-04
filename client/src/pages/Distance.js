@@ -7,6 +7,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../styles/Distance.css";
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
@@ -137,7 +138,7 @@ function Distance() {
     }
   }
   return (
-    <main>
+    <main class="dist-body">
       <>
         <InputGroup className="mb-3">
           <FormControl

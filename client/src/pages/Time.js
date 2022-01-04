@@ -9,6 +9,8 @@ import {
   Button,
 } from "react-bootstrap";
 
+import "../styles/Time.css";
+
 const Time = () => {
   const [time, setTime] = useState("min");
   const [search, setSearch] = useState();
@@ -101,7 +103,7 @@ const Time = () => {
     }
   }
   return (
-    <main>
+    <main class="time-body">
       <>
         <InputGroup className="mb-3">
           <FormControl

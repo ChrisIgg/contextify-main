@@ -18,22 +18,26 @@ db.once("open", async () => {
     //bulk create each model
     const profiles = await Profile.insertMany(profileSeeds);
     const items = await Item.insertMany(itemSeeds);
+
+    console.log("Search Seeds: ", searchSeeds);
     const searches = await Search.insertMany(searchSeeds);
+    console.log("Searches: ", searches);
 
-    for (newItem of items) {
-      // randomly add items to each search
-      const tempSearch = searches[Math.floor(Math.random() * searches.length)];
-      tempSearch.items.push(newItem._id);
-      await tempSearch.save();
-
-      // randomly add a search to each profile
+    for (newSearch of searches) {
+      // randomly add each search to a profile
       const tempProfile = profiles[Math.floor(Math.random() * profiles.length)];
-      newItem.profile = tempProfessor._id;
-      await newClass.save();
+      console.log("Temp Profile: ", tempProfile);
+      tempProfile.searches = newSearch._id;
+      await tempProfile.save();
+      console.log("Updated Temp Profile: ", tempProfile);
+      // randomly add each item to a search
+      const tempItem = items[Math.floor(Math.random() * items.length)];
+      newSearch.item = tempItem._id;
+      await newSearch.save();
 
-      // reference class on professor model, too
-      tempProfessor.classes.push(newClass._id);
-      await tempProfessor.save();
+      // reference searches on item model, too
+      tempItem.searches = newSearch._id;
+      await tempItem.save();
     }
 
     //The for loop is not functional yet, however you can still use the other models and seed data to test out the front-end
