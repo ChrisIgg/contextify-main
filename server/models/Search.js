@@ -1,4 +1,7 @@
-const { Schema, model } = require("mongoose");
+const { model } = require("mongoose");
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 // const bcrypt = require("bcrypt");
 
 const searchSchema = new Schema({
@@ -19,12 +22,15 @@ const searchSchema = new Schema({
     type: Number,
     required: true,
   },
-  fieldB: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Item",
-    },
-  ],
+  fieldB: {
+    type: String,
+  },
+  // fieldB: [
+  //   {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: "Item",
+  //   },
+  // ],
 });
 
 const Search = model("Search", searchSchema);
