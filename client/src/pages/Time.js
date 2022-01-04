@@ -8,6 +8,8 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../styles/Time.css";
+
 const styles = {
   font: {
     fontFamily: "Ubuntu, sans-serif",
@@ -18,8 +20,6 @@ const styles = {
   // centerText: { fontFamily: "Roboto, sans-serif" },
   centerText: { fontFamily: "Source Sans Pro, sans-serif" },
 };
-
-import "../styles/Time.css";
 
 const Time = () => {
   const [time, setTime] = useState("min");
@@ -114,7 +114,6 @@ const Time = () => {
   }
   return (
     <main class="time-body" style={styles.font}>
-
       <>
         <InputGroup className="mb-3">
           <FormControl

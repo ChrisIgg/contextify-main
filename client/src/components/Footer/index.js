@@ -1,15 +1,12 @@
 import React from "react";
 import { useLocation, useHistory } from "react-router-dom";
 
-styling
 const styles = {
   buttonFont: {
     fontFamily: "Ubuntu, sans-serif",
   },
 };
 
-
- main
 const Footer = () => {
   const location = useLocation();
   const history = useHistory();
