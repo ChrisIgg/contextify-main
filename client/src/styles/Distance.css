@@ -3,3 +3,8 @@
   flex-direction: column;
   align-items: center;
 }
+
+.contextify-section {
+  display: flex;
+  flex-direction: row;
+}

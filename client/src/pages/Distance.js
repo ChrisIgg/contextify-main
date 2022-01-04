@@ -161,19 +161,21 @@ function Distance() {
           </SplitButton>
         </InputGroup>
         <h2>Output distance in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
-          <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
-          <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
-          <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
-          <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
-          <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findDistance}>Contextify</Button>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
+            <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
+            <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
+            <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
+            <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
+            <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findDistance}>Contextify</Button>
+        </div>
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
