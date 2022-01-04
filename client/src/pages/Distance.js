@@ -7,11 +7,26 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+
+import "../styles/Distance.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
+
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("ft");
   const [answer, setAnswer] = useState(null);
+  const [outputAnswer, setOutputAnswer] = useState();
   if (search < 0) {
     setSearch(0);
   }
@@ -39,6 +54,7 @@ function Distance() {
   }
   function setMeters() {
     setOutput("m");
+    setOutputAnswer(output);
   }
   function setMiles() {
     setOutput("mi");
@@ -55,67 +71,87 @@ function Distance() {
     }
     if (distance === "ft" && output === "in") {
       setAnswer(Number(search) * 12);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "mi") {
       setAnswer(Number(search) / 5280);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "m") {
       setAnswer(Number(search) / 3.281);
+      setOutputAnswer(output);
     }
     if (distance === "ft" && output === "cm") {
       setAnswer(Number(search) * 30.48);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "m") {
       setAnswer(Number(search) * 1609);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "ft") {
       setAnswer(Number(search) * 5280);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "in") {
       setAnswer(Number(search) * 63360);
+      setOutputAnswer(output);
     }
     if (distance === "mi" && output === "cm") {
       setAnswer(Number(search) * 160934);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "mi") {
       setAnswer(Number(search) / 1609);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "ft") {
       setAnswer(Number(search) * 3.281);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "in") {
       setAnswer(Number(search) * 39.37);
+      setOutputAnswer(output);
     }
     if (distance === "m" && output === "cm") {
       setAnswer(Number(search) * 100);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "mi") {
       setAnswer(Number(search) / 63360);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "m") {
       setAnswer(Number(search) / 39.37);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "ft") {
       setAnswer(Number(search) / 12);
+      setOutputAnswer(output);
     }
     if (distance === "in" && output === "cm") {
       setAnswer(Number(search) / 2.54);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "mi") {
       setAnswer(Number(search) / 160934);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "m") {
       setAnswer(Number(search) / 100);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "ft") {
       setAnswer(Number(search) / 30.48);
+      setOutputAnswer(output);
     }
     if (distance === "cm" && output === "in") {
       setAnswer(Number(search) / 2.54);
+      setOutputAnswer(output);
     }
   }
   return (
-    <main>
+    <main class="dist-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -137,21 +173,24 @@ function Distance() {
             <Dropdown.Item onClick={centimeters}>cm</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output distance in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
-          <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
-          <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
-          <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
-          <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
-          <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findDistance}>Contextify</Button>
-        <Output answer={answer} output={output} />
+
+        <h2 style={styles.centerText}>Output distance in...</h2>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
+            <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
+            <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
+            <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
+            <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
+            <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findDistance}>Contextify</Button>
+        </div>
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );

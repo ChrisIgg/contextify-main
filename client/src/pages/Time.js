@@ -8,13 +8,25 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import "../styles/Time.css";
+
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 const Time = () => {
   const [time, setTime] = useState("min");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("min");
   const [answer, setAnswer] = useState(null);
-
+  const [outputAnswer, setOutputAnswer] = useState();
   const handleInputChange = (e) => setSearch(Number(e.target.value));
   if (search < 0) {
     setSearch(0);
@@ -49,50 +61,59 @@ const Time = () => {
     }
     if (time === "day" && output === "hour") {
       setAnswer(search * 24);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "hour") {
       setAnswer(search * 24);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "min") {
       setAnswer(search * 1440);
+      setOutputAnswer(output);
     }
     if (time === "day" && output === "sec") {
       setAnswer(search * 86400);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "day") {
       setAnswer(search / 24);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "min") {
       setAnswer(search * 60);
+      setOutputAnswer(output);
     }
     if (time === "hour" && output === "sec") {
       setAnswer(search * 3600);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "day") {
-      console.log(`min to day`);
-      let result = search / 1440;
-      console.log(result);
       setAnswer(search / 1440);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "hour") {
-      let result = search / 60;
       setAnswer(search / 60);
+      setOutputAnswer(output);
     }
     if (time === "min" && output === "sec") {
       setAnswer(search * 60);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "day") {
       setAnswer(search / 86400);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "hour") {
       setAnswer(search / 86400);
+      setOutputAnswer(output);
     }
     if (time === "sec" && output === "min") {
       setAnswer(search / 60);
+      setOutputAnswer(output);
     }
   }
   return (
-    <main>
+    <main class="time-body" style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -113,19 +134,23 @@ const Time = () => {
             <Dropdown.Item onClick={seconds}>sec</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output time in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
-          <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
-          <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
-          <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findTime}>Contextify</Button>
-        <Output answer={answer} output={output} />
+
+        <h2 style={styles.centerText}>Output time in...</h2>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
+            <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
+            <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
+            <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findTime}>Contextify</Button>
+        </div>
+
+        <Output answer={answer} output={outputAnswer} />
       </>
     </main>
   );
