@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 import "../../styles/Header.css";
+import "../../styles/button.css";
 
 const styles = {
   header: {
@@ -10,7 +11,7 @@ const styles = {
     justifyContent: "space-between",
   },
   login: {
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
   },
   links: {
     display: "flex",
@@ -38,11 +39,7 @@ const Header = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link
-                className="btn btn-lg btn-primary m-2"
-                to="/me"
-                style={styles.buttonFont}
-              >
+              <Link className="" to="/me" style={styles.buttonFont}>
                 View My Profile
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
@@ -51,15 +48,11 @@ const Header = () => {
             </>
           ) : (
             <div style={styles.login}>
-              <Link
-                className="btn btn-lg btn-primary m-2"
-                to="/login"
-                style={styles.buttonFont}
-              >
+              <Link className="proj-btn" to="/login" style={styles.buttonFont}>
                 Login
               </Link>
               <Link
-                className="btn btn-lg btn-light m-2"
+                className="signup-btn"
                 to="/signup"
                 style={styles.buttonFont}
               >
@@ -71,25 +64,13 @@ const Header = () => {
       </div>
       <h1 class="proj-title">Contextify</h1>
       <div style={styles.links}>
-        <Link
-          className="btn btn-lg btn-primary m-2"
-          to="/weight"
-          style={styles.buttonFont}
-        >
+        <Link className="proj-btn" to="/weight" style={styles.buttonFont}>
           Weight
         </Link>
-        <Link
-          className="btn btn-lg btn-primary m-2"
-          to="/distance"
-          style={styles.buttonFont}
-        >
+        <Link className="proj-btn" to="/distance" style={styles.buttonFont}>
           Distance
         </Link>
-        <Link
-          className="btn btn-lg btn-primary m-2"
-          to="/time"
-          style={styles.buttonFont}
-        >
+        <Link className="proj-btn-time" to="/time" style={styles.buttonFont}>
           Time
         </Link>
       </div>
