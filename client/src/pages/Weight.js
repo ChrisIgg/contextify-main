@@ -9,6 +9,16 @@ import {
 } from "react-bootstrap";
 
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
+const styles = {
+  font: {
+    fontFamily: "Ubuntu, sans-serif",
+  },
+  // centerText is for 'output weight in...'
+  // centerText: { fontFamily: "Ubuntu, sans-serif" },
+  // centerText: { fontFamily: "Noto Sans JP, sans-serif" },
+  // centerText: { fontFamily: "Roboto, sans-serif" },
+  centerText: { fontFamily: "Source Sans Pro, sans-serif" },
+};
 
 const Weight = () => {
   const [weight, setWeight] = useState("lbs");
@@ -115,7 +125,7 @@ const Weight = () => {
   console.log(calculatedWeight, "before return");
 
   return (
-    <main>
+    <main style={styles.font}>
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -136,7 +146,7 @@ const Weight = () => {
             <Dropdown.Item onClick={grams}>g</Dropdown.Item>
           </SplitButton>
         </InputGroup>
-        <h2>Output weight in...</h2>
+        <h2 style={styles.centerText}>Output weight in...</h2>
         <SplitButton
           variant="outline-secondary"
           title={output}
