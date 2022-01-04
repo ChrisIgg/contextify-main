@@ -8,6 +8,8 @@ import {
   Button,
 } from "react-bootstrap";
 
+import "../styles/Weight.css";
+
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
 
 const Weight = () => {
@@ -115,7 +117,7 @@ const Weight = () => {
   console.log(calculatedWeight, "before return");
 
   return (
-    <main>
+    <main class="weight-body">
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -137,18 +139,20 @@ const Weight = () => {
           </SplitButton>
         </InputGroup>
         <h2>Output weight in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
-          <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
-          <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
-          <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
-          <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findWeight}>Contextify</Button>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setPounds}>lbs</Dropdown.Item>
+            <Dropdown.Item onClick={setKilograms}>kg</Dropdown.Item>
+            <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
+            <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
+            <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findWeight}>Contextify</Button>
+        </div>
         <ImageDisplay weight={calculatedWeight} />
         <Output answer={answer} output={outputAnswer} />
       </>

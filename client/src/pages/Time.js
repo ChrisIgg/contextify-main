@@ -9,6 +9,8 @@ import {
   Button,
 } from "react-bootstrap";
 
+import "../styles/Time.css";
+
 const Time = () => {
   const [time, setTime] = useState("min");
   const [search, setSearch] = useState();
@@ -101,7 +103,7 @@ const Time = () => {
     }
   }
   return (
-    <main>
+    <main class="time-body">
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -123,17 +125,19 @@ const Time = () => {
           </SplitButton>
         </InputGroup>
         <h2>Output time in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
-          <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
-          <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
-          <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findTime}>Contextify</Button>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setDay}>day</Dropdown.Item>
+            <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
+            <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
+            <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findTime}>Contextify</Button>
+        </div>
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>
