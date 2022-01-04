@@ -38,6 +38,9 @@ const Time = () => {
   function setSeconds() {
     setOutput("sec");
   }
+  function setBaths() {
+    setOutput("Baths");
+  }
   function hour() {
     setTime("hour");
   }
@@ -69,7 +72,7 @@ const Time = () => {
       setCalculatedWeight(newWeight);
     }
     if (time === "day" && output === "Baths") {
-      let newWeight = Number(search) * 12;
+      let newWeight = Number(search) * 48;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -163,6 +166,7 @@ const Time = () => {
           <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
           <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
           <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+          <Dropdown.Item onClick={setBaths}>Baths</Dropdown.Item>
         </SplitButton>
         <Button onClick={findTime}>Contextify</Button>
         <OutputDisplay weight={calculatedWeight} output={output} />

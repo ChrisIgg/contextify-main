@@ -7,12 +7,20 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+
+import OutputDisplay from "../components/ImagesDisplay/DistanceDisplay.js";
+
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
   const [output, setOutput] = useState("ft");
+  const [calculatedWeight, setCalculatedWeight] = useState(0.0);
   const [answer, setAnswer] = useState(null);
   const [outputAnswer, setOutputAnswer] = useState();
+  if (calculatedWeight < 0.0) {
+    setCalculatedWeight(0.0);
+  }
+
   if (search < 0) {
     setSearch(0);
   }

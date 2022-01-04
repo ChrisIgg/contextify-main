@@ -29,6 +29,12 @@ const Weight = () => {
   function setPounds() {
     setOutput("lbs");
   }
+  function setElephants() {
+    setOutput("Elephants");
+  }
+  function setDroplets() {
+    setOutput("Droplets");
+  }
   function setOunces() {
     setOutput("oz");
   }
@@ -77,8 +83,14 @@ const Weight = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (weight === "lbs" && output === "Water") {
+    if (weight === "lbs" && output === "Droplets") {
       let newWeight = Number(search) / 0.00011;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "lbs" && output === "Elephants") {
+      let newWeight = Number(search) / 10000;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -97,8 +109,14 @@ const Weight = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (weight === "oz" && output === "Water") {
+    if (weight === "oz" && output === "Droplets") {
       let newWeight = Number(search) / 0.0017;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "oz" && output === "Elephants") {
+      let newWeight = Number(search) / 16 / 10000;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -121,8 +139,14 @@ const Weight = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (weight === "kg" && output === "Water") {
+    if (weight === "kg" && output === "Droplets") {
       let newWeight = Number(search) / 0.00005;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "kg" && output === "Elephants") {
+      let newWeight = (Number(search) * 2.2) / 10000;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -145,8 +169,14 @@ const Weight = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (weight === "g" && output === "Water") {
+    if (weight === "g" && output === "Droplets") {
       let newWeight = Number(search) / 0.05;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (weight === "g" && output === "Elephants") {
+      let newWeight = Number(search) / 454 / 10000;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -189,6 +219,8 @@ const Weight = () => {
           <Dropdown.Item onClick={setOunces}>oz</Dropdown.Item>
           <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
           <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
+          <Dropdown.Item onClick={setDroplets}>Droplets</Dropdown.Item>
+          <Dropdown.Item onClick={setElephants}>Elephants</Dropdown.Item>
         </SplitButton>
         <Button onClick={findWeight}>Contextify</Button>
         <OutputDisplay weight={calculatedWeight} output={output} />
