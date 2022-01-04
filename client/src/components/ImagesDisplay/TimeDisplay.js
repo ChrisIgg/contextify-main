@@ -1,51 +1,20 @@
-import bathtub from "../../assets/bathtub.png";
-import day from "../../assets/day.png";
-import stopwatch from "../../assets/stopwatch.png";
-import microwave from "../../assets/microwave.png";
+import bathtub from "../../assets/bath.png";
+import popcorn from "../../assets/popcorn.png";
+import workday from "../../assets/suitcase.png";
 
 const OutputDisplay = ({ weight, output }) => {
-  if (output === "Day") {
-    return DayDisplay({ weight });
-  } else if (output === "Baths") {
-    return HourDisplay({ weight });
-  } else if (output === "Stopwatch") {
-    return SecondsDisplay({ weight });
-  } else if (output === "Reheating") {
-    return MinutesDisplay({ weight });
+  if (output === "Baths") {
+    return BathsDisplay({ weight });
+  } else if (output === "Workday") {
+    return WorkDisplay({ weight });
+  } else if (output === "Popcorn") {
+    return PopcornDisplay({ weight });
   }
   return <div></div>;
 };
 
-const DayDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
-    return (
-      <div className="justify-content-center">
-        {[...Array(Math.round(weight))].map(() => (
-          <img src={day} height="50" />
-        ))}
-      </div>
-    );
-  } else if (weight > 800) {
-    return (
-      <div className="justify-content-center">
-        {[...Array(Math.round(weight))].map(() => (
-          <img src={day} height="25" />
-        ))}
-      </div>
-    );
-  } else {
-    return (
-      <div className="justify-content-center">
-        {[...Array(Math.round(weight))].map(() => (
-          <img src={day} height="75" />
-        ))}
-      </div>
-    );
-  }
-};
-
-const HourDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+const BathsDisplay = ({ weight }) => {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -53,7 +22,7 @@ const HourDisplay = ({ weight }) => {
         ))}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -61,67 +30,73 @@ const HourDisplay = ({ weight }) => {
         ))}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={bathtub} height="75" />
+          <img src={bathtub} height="60" />
         ))}
       </div>
     );
   }
 };
 
-const SecondsDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+const PopcornDisplay = ({ weight }) => {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={stopwatch} height="50" />
+          <img src={popcorn} height="50" />
         ))}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={stopwatch} height="25" />
+          <img src={popcorn} height="25" />
         ))}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={stopwatch} height="75" />
+          <img src={popcorn} height="60" />
         ))}
       </div>
     );
   }
 };
 
-const MinutesDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+const WorkDisplay = ({ weight }) => {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={microwave} height="50" />
+          <img src={workday} height="50" />
         ))}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={microwave} height="25" />
+          <img src={workday} height="25" />
         ))}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={microwave} height="75" />
+          <img src={workday} height="60" />
         ))}
       </div>
     );

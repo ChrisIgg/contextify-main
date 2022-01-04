@@ -18,7 +18,7 @@ const OutputDisplay = ({ weight, output }) => {
 };
 
 const ImageDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -27,7 +27,7 @@ const ImageDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -36,11 +36,13 @@ const ImageDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={apple} height="75" />
+          <img src={apple} height="60" />
         ))}
         {/* {weight} */}
       </div>
@@ -49,7 +51,7 @@ const ImageDisplay = ({ weight }) => {
 };
 
 const WaterDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -58,7 +60,7 @@ const WaterDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -67,11 +69,13 @@ const WaterDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={water} height="75" />
+          <img src={water} height="60" />
         ))}
         {/* {weight} */}
       </div>
@@ -80,7 +84,7 @@ const WaterDisplay = ({ weight }) => {
 };
 
 const ElephantDisplay = ({ weight }) => {
-  if (weight > 275 && weight < 799) {
+  if (weight > 260 && weight < 799) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -89,7 +93,7 @@ const ElephantDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
-  } else if (weight > 800) {
+  } else if (weight > 800 && weight < 1200) {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
@@ -98,11 +102,13 @@ const ElephantDisplay = ({ weight }) => {
         {/* {weight} */}
       </div>
     );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
   } else {
     return (
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
-          <img src={elephant} height="75" />
+          <img src={elephant} height="60" />
         ))}
         {/* {weight} */}
       </div>

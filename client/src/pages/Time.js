@@ -143,19 +143,19 @@ const Time = () => {
       setOutputAnswer(output);
     }
     if (time === "min" && output === "Baths") {
-      let newWeight = Number(search) * 48;
+      let newWeight = Number(search) / 30;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
     if (time === "min" && output === "Popcorn") {
-      let newWeight = Number(search) * 1440 * 3;
+      let newWeight = Number(search) / 3;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
     if (time === "min" && output === "Workday") {
-      let newWeight = Number(search) * 8;
+      let newWeight = Number(search) / (60 * 8);
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
