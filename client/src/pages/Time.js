@@ -38,8 +38,14 @@ const Time = () => {
   function setSeconds() {
     setOutput("sec");
   }
+  function setPopcorn() {
+    setOutput("Popcorn");
+  }
   function setBaths() {
     setOutput("Baths");
+  }
+  function setWorkday() {
+    setOutput("Workday");
   }
   function hour() {
     setTime("hour");
@@ -61,10 +67,6 @@ const Time = () => {
       setAnswer(search * 24);
       setOutputAnswer(output);
     }
-    if (time === "day" && output === "hour") {
-      setAnswer(search * 24);
-      setOutputAnswer(output);
-    }
     if (time === "day" && output === "Day") {
       let newWeight = Number(search);
       setOutputAnswer(output);
@@ -77,14 +79,14 @@ const Time = () => {
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (time === "day" && output === "Reheating") {
+    if (time === "day" && output === "Popcorn") {
       let newWeight = Number(search) * 1440 * 3;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
     }
-    if (time === "day" && output === "Stopwatch") {
-      let newWeight = Number(search) * 1440;
+    if (time === "day" && output === "Workday") {
+      let newWeight = Number(search) * 8;
       setOutputAnswer(output);
       setAnswer(newWeight);
       setCalculatedWeight(newWeight);
@@ -109,6 +111,25 @@ const Time = () => {
       setAnswer(search * 3600);
       setOutputAnswer(output);
     }
+    if (time === "hour" && output === "Baths") {
+      let newWeight = Number(search) * 2;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "hour" && output === "Popcorn") {
+      let newWeight = Number(search) * 60 * 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "hour" && output === "Workday") {
+      let newWeight = (Number(search) / 24) * 8;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+
     if (time === "min" && output === "day") {
       setAnswer(search / 1440);
       setOutputAnswer(output);
@@ -121,6 +142,25 @@ const Time = () => {
       setAnswer(search * 60);
       setOutputAnswer(output);
     }
+    if (time === "min" && output === "Baths") {
+      let newWeight = Number(search) * 48;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "min" && output === "Popcorn") {
+      let newWeight = Number(search) * 1440 * 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+    if (time === "min" && output === "Workday") {
+      let newWeight = Number(search) * 8;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+
     if (time === "sec" && output === "day") {
       setAnswer(search / 86400);
       setOutputAnswer(output);
@@ -166,7 +206,9 @@ const Time = () => {
           <Dropdown.Item onClick={setHour}>hour</Dropdown.Item>
           <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
           <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
+          <Dropdown.Item onClick={setPopcorn}>Popcorn</Dropdown.Item>
           <Dropdown.Item onClick={setBaths}>Baths</Dropdown.Item>
+          <Dropdown.Item onClick={setWorkday}>Workday</Dropdown.Item>
         </SplitButton>
         <Button onClick={findTime}>Contextify</Button>
         <OutputDisplay weight={calculatedWeight} output={output} />
