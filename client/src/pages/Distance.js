@@ -7,6 +7,9 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+
+import "../styles/Distance.css";
+
 const styles = {
   font: {
     fontFamily: "Ubuntu, sans-serif",
@@ -17,6 +20,9 @@ const styles = {
   // centerText: { fontFamily: "Roboto, sans-serif" },
   centerText: { fontFamily: "Source Sans Pro, sans-serif" },
 };
+
+
+ main
 function Distance() {
   const [distance, setDistance] = useState("ft");
   const [search, setSearch] = useState();
@@ -147,7 +153,8 @@ function Distance() {
     }
   }
   return (
-    <main style={styles.font}>
+    <main class="dist-body" style={styles.font}>
+
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -169,20 +176,23 @@ function Distance() {
             <Dropdown.Item onClick={centimeters}>cm</Dropdown.Item>
           </SplitButton>
         </InputGroup>
+
         <h2 style={styles.centerText}>Output distance in...</h2>
-        <SplitButton
-          variant="outline-secondary"
-          title={output}
-          id="segmented-button-dropdown-2"
-        >
-          <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
-          <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
-          <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
-          <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
-          <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
-          <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
-        </SplitButton>
-        <Button onClick={findDistance}>Contextify</Button>
+        <div class="contextify-section">
+          <SplitButton
+            variant="outline-secondary"
+            title={output}
+            id="segmented-button-dropdown-2"
+          >
+            <Dropdown.Item onClick={setMiles}>mi</Dropdown.Item>
+            <Dropdown.Item onClick={setMeters}>m</Dropdown.Item>
+            <Dropdown.Item onClick={setFeet}>ft</Dropdown.Item>
+            <Dropdown.Item onClick={setInches}>in</Dropdown.Item>
+            <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
+            <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
+          </SplitButton>
+          <Button onClick={findDistance}>Contextify</Button>
+        </div>
         <Output answer={answer} output={outputAnswer} />
       </>
     </main>

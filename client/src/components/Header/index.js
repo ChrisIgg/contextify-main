@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
+import "../../styles/Header.css";
 
 const styles = {
   header: {
@@ -30,9 +31,9 @@ const Header = () => {
     <header>
       <div style={styles.header}>
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: "3rem" }}>
+          {/* <h1 className="m-0" style={{ fontSize: "3rem" }}>
             Contextify
-          </h1>
+          </h1> */}
         </Link>
         <div>
           {Auth.loggedIn() ? (
@@ -68,6 +69,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <h1 class="proj-title">Contextify</h1>
       <div style={styles.links}>
         <Link
           className="btn btn-lg btn-primary m-2"

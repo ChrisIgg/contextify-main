@@ -1,12 +1,7 @@
 [
   {
-    "name": "example",
+    "searchName": "example",
     "fieldA": 172,
     "fieldB": "bananas"
-  },
-  {
-    "name": "example2",
-    "fieldA": 150,
-    "fieldB": "apples"
   }
 ]
