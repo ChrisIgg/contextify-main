@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 
 import "../styles/Distance.css";
+import "../styles/button.css";
 
 const styles = {
   font: {
@@ -188,7 +189,9 @@ function Distance() {
             <Dropdown.Item onClick={setCentimeters}>cm</Dropdown.Item>
             <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findDistance}>Contextify</Button>
+          <button className="contex-btn" onClick={findDistance}>
+            Contextify
+          </button>
         </div>
         <Output answer={answer} output={outputAnswer} />
       </>

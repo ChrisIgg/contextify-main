@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 
 import "../styles/Weight.css";
+import "../styles/button.css";
 
 import ImageDisplay from "../components/ImagesDisplay/ImagesDisplay";
 const styles = {
@@ -127,9 +128,7 @@ const Weight = () => {
   console.log(calculatedWeight, "before return");
 
   return (
-
     <main class="weight-body" style={styles.font}>
-
       <>
         <InputGroup className="mb-3">
           <FormControl
@@ -142,6 +141,7 @@ const Weight = () => {
             variant="outline-secondary"
             title={weight}
             id="segmented-button-dropdown-2"
+            className="proj-btn"
             alignRight
           >
             <Dropdown.Item onClick={pounds}>lbs</Dropdown.Item>
@@ -151,7 +151,7 @@ const Weight = () => {
           </SplitButton>
         </InputGroup>
 
-        <h2 style={styles.centerText} >Output weight in...</h2>
+        <h2 style={styles.centerText}>Output weight in...</h2>
         <div class="contextify-section">
           <SplitButton
             variant="outline-secondary"
@@ -164,7 +164,9 @@ const Weight = () => {
             <Dropdown.Item onClick={setGrams}>g</Dropdown.Item>
             <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findWeight}>Contextify</Button>
+          <button className="contex-btn" onClick={findWeight}>
+            Contextify
+          </button>
         </div>
 
         <ImageDisplay weight={calculatedWeight} />

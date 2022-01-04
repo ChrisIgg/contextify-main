@@ -9,6 +9,7 @@ import {
   Button,
 } from "react-bootstrap";
 import "../styles/Time.css";
+import "../styles/button.css";
 
 const styles = {
   font: {
@@ -147,7 +148,9 @@ const Time = () => {
             <Dropdown.Item onClick={setMinutes}>min</Dropdown.Item>
             <Dropdown.Item onClick={setSeconds}>sec</Dropdown.Item>
           </SplitButton>
-          <Button onClick={findTime}>Contextify</Button>
+          <button className="contex-btn" onClick={findTime}>
+            Contextify
+          </button>
         </div>
 
         <Output answer={answer} output={outputAnswer} />
