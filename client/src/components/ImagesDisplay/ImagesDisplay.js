@@ -2,7 +2,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 // import Weight from '../../pages/Weight';
-import apple from "../../assets/apple.png";
+// import apple from "../../assets/apple.png";
 import water from "../../assets/droplet.png";
 import elephant from "../../assets/elephant.png";
 
