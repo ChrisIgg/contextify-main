@@ -1,64 +1,52 @@
-# Create JSON Web Token (Back end)
+# Contextify
 
-In this demo, you will create a profile and verify JSON Web Tokens to log into a profile.
+-[Description](#description) -[Purpose](#purpose) -[Usage](#usage) -[Mock-up](#) -[Credits](#credits) -[License](#license)
 
-## Instructions
+## Description
 
-* Run `npm install` and `npm run seed` to set up the database.
+Contextify is a full stack MERN application that that offers visual representation of data. Contextify can handle general weight, distance, and time conversions as well as abstract conversions.
 
-* Open [Profile.js](models/Profile.js) and explain the `save` hook and `isCorrectPassword` custom method:
+## Purpose
 
-  * When a new profile is created, the password is automatically hashed using `bcrypt`.
+The purpose of this application is to help users quantify their metrics in a more digestible context.
 
-  * When a user logs into their profile, we will execute the `isCorrectPassword` method to determine if the correct password was provided.
+## Usage
 
-* Open [typeDefs.js](schemas/typeDefs.js) and explain the `Auth` and `Mutation` types:
+1. visit https://protected-tundra-53056.herokuapp.com/
+2. Login or SignUp through "Login" and "Signup" buttons on the top right
+3. Once logged choose your starting category, "Weight", "Distance", or "Time"
+4. Now you can type in your number and select your starting unit on the right hand side drop down or the input field. For example, "170" can be typed into the input field and "lbs" from the drop down.
+5. Now you are able to choose the unit you would like to output and click "Contextify" to convert.
 
-  * An `Auth` type returns a `token` and can include any other `Profile` data.
+## Mock-Up
 
-  * The `addProfile` mutation now takes in more profile information as input and returns an `Auth` object.
+![Screenshot of the application interface](./Assets/screenshot.png)
 
-  * A `login` mutation takes in an `email` and `password` and returns an `Auth` object.
+## Credits
 
-* Open [auth.js](utils/auth.js) and explain the contents:
+Ricardo Garcia, Chris Insignares, Chris Garcia, Hugo Yanez, Ami Asokumar. Github repository: https://github.com/ChrisIgg/contextify-main
+Heroku: https://protected-tundra-53056.herokuapp.com/
 
-  * We require `jsonwebtoken` on top.
+## License
 
-  * We create a JWT `secret` and an `expiration`.
+MIT License
 
-  * We export the `signToken()` function that takes in a `user` object and adds the `email` and `_id` properties to the token, along with the `secret` and `expiration`.
+Copyright (c) [2022] [RicardoGarcia]
 
-* **DO NOT** explain the code `resolver.js` as that is the objective of the following `22-Stu_Sign-JWT` activity!
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-* To demonstrate how it all works, run `npm run watch` in your command line and open your browser to <http://localhost:3001/graphql> to view the GraphQL Playground.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-  * Query all users for their `email` and `password`. Make note of one user's email and password to test out the `login()` mutation.
-
-    ```graphql
-    query {
-      profiles {
-        email
-        password
-      }
-    }
-    ```
-
-  * Open another tab in GraphQL Playground and test the `login()` mutation using the query variables `email` and `password` of the user noted above. 
-
-    ```graphql
-    mutation login($email: String!, $password: String!) {
-      login(email: $email, password: $password) {
-        user {
-          _id
-          email
-        }
-        token
-      } 
-    }
-    ```
-
-  * You should be able to see the `token` along with the user's `email` and `_id`. Copy the `token`.
-
-* Open your browser to <https://jwt.io/> and paste the `token` in the `Encoded` text box.
-
-  * In the `Decoded` boxes, you should be able to see the Header, Payload (which includes the `email` and `_id`), and Signature.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
