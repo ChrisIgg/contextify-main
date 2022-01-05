@@ -2,7 +2,7 @@
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faAppleAlt } from "@fortawesome/free-solid-svg-icons";
 // import Weight from '../../pages/Weight';
-// import apple from "../../assets/apple.png";
+import apple from "../../assets/apple.png";
 import water from "../../assets/droplet.png";
 import elephant from "../../assets/elephant.png";
 
@@ -11,7 +11,7 @@ const OutputDisplay = ({ weight, output }) => {
     return ImageDisplay({ weight });
   } else if (output === "Droplets") {
     return WaterDisplay({ weight });
-  } else if (output === "Elephant") {
+  } else if (output === "Elephants") {
     return ElephantDisplay({ weight });
   }
   return <div></div>;

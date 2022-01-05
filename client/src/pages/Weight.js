@@ -5,7 +5,6 @@ import {
   Dropdown,
   SplitButton,
   FormControl,
-  Button,
 } from "react-bootstrap";
 
 import OutputDisplay from "../components/ImagesDisplay/ImagesDisplay";
