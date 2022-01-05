@@ -5,14 +5,17 @@
 import apple from "../../assets/apple.png";
 import water from "../../assets/droplet.png";
 import elephant from "../../assets/elephant.png";
+import bananas from "../../assets/banana.png";
 
 const OutputDisplay = ({ weight, output }) => {
   if (output === "Apples") {
     return ImageDisplay({ weight });
   } else if (output === "Droplets") {
     return WaterDisplay({ weight });
-  } else if (output === "Elephant") {
+  } else if (output === "Elephants") {
     return ElephantDisplay({ weight });
+  } else if (output === "Bananas") {
+    return BananasDisplay({ weight });
   }
   return <div></div>;
 };
@@ -109,6 +112,39 @@ const ElephantDisplay = ({ weight }) => {
       <div className="justify-content-center">
         {[...Array(Math.round(weight))].map(() => (
           <img src={elephant} height="60" />
+        ))}
+        {/* {weight} */}
+      </div>
+    );
+  }
+};
+
+const BananasDisplay = ({ weight }) => {
+  if (weight > 260 && weight < 799) {
+    return (
+      <div className="justify-content-center">
+        {[...Array(Math.round(weight))].map(() => (
+          <img src={bananas} height="50" />
+        ))}
+        {/* {weight} */}
+      </div>
+    );
+  } else if (weight > 800 && weight < 1200) {
+    return (
+      <div className="justify-content-center">
+        {[...Array(Math.round(weight))].map(() => (
+          <img src={bananas} height="25" />
+        ))}
+        {/* {weight} */}
+      </div>
+    );
+  } else if (weight > 1200) {
+    return <div>Too large!</div>;
+  } else {
+    return (
+      <div className="justify-content-center">
+        {[...Array(Math.round(weight))].map(() => (
+          <img src={bananas} height="60" />
         ))}
         {/* {weight} */}
       </div>

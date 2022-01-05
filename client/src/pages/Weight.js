@@ -5,7 +5,6 @@ import {
   Dropdown,
   SplitButton,
   FormControl,
-  Button,
 } from "react-bootstrap";
 
 import OutputDisplay from "../components/ImagesDisplay/ImagesDisplay";
@@ -44,6 +43,9 @@ const Weight = () => {
   }
   function setElephants() {
     setOutput("Elephants");
+  }
+  function setBananas() {
+    setOutput("Bananas");
   }
   function setDroplets() {
     setOutput("Droplets");
@@ -90,6 +92,13 @@ const Weight = () => {
       setAnswer(Number(search) * 453.6);
       setOutputAnswer(output);
     }
+    if (weight === "lbs" && output === "Bananas") {
+      let newWeight = Number(search) / 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
+
     if (weight === "lbs" && output === "Apples") {
       let newWeight = Number(search) / 0.3;
       setOutputAnswer(output);
@@ -115,6 +124,12 @@ const Weight = () => {
     if (weight === "oz" && output === "g") {
       setAnswer(Number(search) * 28.3);
       setOutputAnswer(output);
+    }
+    if (weight === "oz" && output === "Bananas") {
+      let newWeight = Number(search) / 16 / 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
     }
     if (weight === "oz" && output === "Apples") {
       let newWeight = Number(search) / 5.1;
@@ -146,6 +161,12 @@ const Weight = () => {
       setAnswer(Number(search) * 1000);
       setOutputAnswer(output);
     }
+    if (weight === "kg" && output === "Bananas") {
+      let newWeight = (Number(search) * 2.2) / 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
+    }
     if (weight === "kg" && output === "Apples") {
       let newWeight = Number(search) / 0.145;
       setOutputAnswer(output);
@@ -175,6 +196,12 @@ const Weight = () => {
     if (weight === "g" && output === "oz") {
       setAnswer(Number(search) / 28.4);
       setOutputAnswer(output);
+    }
+    if (weight === "g" && output === "Bananas") {
+      let newWeight = Number(search) / 454 / 3;
+      setOutputAnswer(output);
+      setAnswer(newWeight);
+      setCalculatedWeight(newWeight);
     }
     if (weight === "g" && output === "Apples") {
       let newWeight = Number(search) / 145;
@@ -236,6 +263,7 @@ const Weight = () => {
             <Dropdown.Item onClick={setApples}>Apples</Dropdown.Item>
             <Dropdown.Item onClick={setDroplets}>Droplets</Dropdown.Item>
             <Dropdown.Item onClick={setElephants}>Elephants</Dropdown.Item>
+            <Dropdown.Item onClick={setBananas}>Bananas</Dropdown.Item>
           </SplitButton>
           <button className="contex-btn" onClick={findWeight}>
             Contextify

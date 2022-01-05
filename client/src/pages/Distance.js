@@ -5,7 +5,6 @@ import {
   Dropdown,
   SplitButton,
   FormControl,
-  Button,
 } from "react-bootstrap";
 
 import OutputDisplay from "../components/ImagesDisplay/DistanceDisplay.js";
@@ -99,16 +98,22 @@ function Distance() {
       setOutputAnswer(output);
     }
     if (distance === "ft" && output === "Football") {
-      setAnswer(Number(search) / 300);
+      let newWeight = Number(search) / 300;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "ft" && output === "Bus") {
-      setAnswer(Number(search) / 45);
+      let newWeight = Number(search) / 45;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "ft" && output === "Phone") {
-      setAnswer(Number(search) / 0.42);
+      let newWeight = Number(search) / 0.42;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "mi" && output === "m") {
       setAnswer(Number(search) * 1609);
@@ -127,16 +132,22 @@ function Distance() {
       setOutputAnswer(output);
     }
     if (distance === "mi" && output === "Football") {
-      setAnswer((Number(search) / 300) * 5280);
+      let newWeight = (Number(search) / 300) * 5280;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "mi" && output === "Bus") {
-      setAnswer((Number(search) / 45) * 5280);
+      let newWeight = (Number(search) / 45) * 5280;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "mi" && output === "Phone") {
-      setAnswer((Number(search) / 0.42) * 5280);
+      let newWeight = (Number(search) / 0.42) * 5280;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "m" && output === "mi") {
       setAnswer(Number(search) / 1609);
@@ -155,16 +166,22 @@ function Distance() {
       setOutputAnswer(output);
     }
     if (distance === "m" && output === "Football") {
-      setAnswer((Number(search) / 300) * 3.281);
+      let newWeight = (Number(search) / 300) * 3.281;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "m" && output === "Bus") {
-      setAnswer((Number(search) / 45) * 3.281);
+      let newWeight = (Number(search) / 45) * 3.281;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "m" && output === "Phone") {
-      setAnswer((Number(search) / 0.42) * 3.281);
+      let newWeight = (Number(search) / 0.42) * 3.281;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "in" && output === "mi") {
       setAnswer(Number(search) / 63360);
@@ -183,16 +200,22 @@ function Distance() {
       setOutputAnswer(output);
     }
     if (distance === "in" && output === "Football") {
-      setAnswer(Number(search) / 300 / 12);
+      let newWeight = Number(search) / 300 / 12;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "in" && output === "Bus") {
-      setAnswer(Number(search) / 45 / 12);
+      let newWeight = Number(search) / 45 / 12;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "in" && output === "Phone") {
-      setAnswer(Number(search) / 0.42 / 12);
+      let newWeight = Number(search) / 0.42 / 12;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "cm" && output === "mi") {
       setAnswer(Number(search) / 160934);
@@ -211,16 +234,22 @@ function Distance() {
       setOutputAnswer(output);
     }
     if (distance === "cm" && output === "Football") {
-      setAnswer(Number(search) / 300 / 30.48);
+      let newWeight = Number(search) / 300 / 30.48;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "cm" && output === "Bus") {
-      setAnswer(Number(search) / 45 / 30.48);
+      let newWeight = Number(search) / 45 / 30.48;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
     if (distance === "cm" && output === "Phone") {
-      setAnswer(Number(search) / 0.42 / 30.48);
+      let newWeight = Number(search) / 0.42 / 30.48;
+      setAnswer(newWeight);
       setOutputAnswer(output);
+      setCalculatedWeight(newWeight);
     }
   }
   return (
